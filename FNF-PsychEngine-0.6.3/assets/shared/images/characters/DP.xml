@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DP.png">
+	<!-- Created with Adobe Animate version 23.0.2.103 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="DP ALT DOWN0000" x="1960" y="915" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0001" x="2364" y="915" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0002" x="2364" y="915" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0003" x="2768" y="915" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0004" x="2768" y="915" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0005" x="3172" y="915" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0006" x="3576" y="915" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0007" x="11" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0008" x="11" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0009" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0010" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0011" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0012" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0013" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0014" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0015" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0016" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0017" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0018" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT DOWN0019" x="415" y="1385" width="393" height="366"/>
+	<SubTexture name="DP ALT LEFT0000" x="819" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0001" x="1220" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0002" x="1220" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0003" x="1621" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0004" x="1621" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0005" x="2022" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0006" x="2423" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0007" x="2824" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0008" x="2824" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0009" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0010" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0011" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0012" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0013" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0014" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0015" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0016" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0017" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0018" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT LEFT0019" x="3225" y="1385" width="390" height="427"/>
+	<SubTexture name="DP ALT RIGHT0000" x="3626" y="1385" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0001" x="11" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0002" x="11" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0003" x="405" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0004" x="405" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0005" x="799" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0006" x="1193" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0007" x="1587" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0008" x="1587" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0009" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0010" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0011" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0012" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0013" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0014" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0015" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0016" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0017" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0018" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT RIGHT0019" x="1981" y="1823" width="383" height="422"/>
+	<SubTexture name="DP ALT UP0000" x="2375" y="1823" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0001" x="2732" y="1823" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0002" x="2732" y="1823" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0003" x="3089" y="1823" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0004" x="3089" y="1823" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0005" x="3446" y="1823" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0006" x="11" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0007" x="368" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0008" x="368" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0009" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0010" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0011" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0012" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0013" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0014" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0015" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0016" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0017" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0018" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP ALT UP0019" x="725" y="2298" width="346" height="464"/>
+	<SubTexture name="DP NOTE DOWN0000" x="1082" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0001" x="1481" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0002" x="1481" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0003" x="1880" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0004" x="1880" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0005" x="2279" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0006" x="2678" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0007" x="3077" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0008" x="3077" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0009" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0010" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0011" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0012" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0013" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0014" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0015" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0016" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0017" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0018" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE DOWN0019" x="3476" y="2298" width="388" height="366"/>
+	<SubTexture name="DP NOTE LEFT0000" x="11" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0001" x="412" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0002" x="412" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0003" x="813" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0004" x="813" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0005" x="1214" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0006" x="1615" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0007" x="2016" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0008" x="2016" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0009" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0010" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0011" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0012" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0013" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0014" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0015" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0016" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0017" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0018" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE LEFT0019" x="2417" y="2773" width="390" height="424"/>
+	<SubTexture name="DP NOTE RIGHT0000" x="2818" y="2773" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0001" x="3197" y="2773" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0002" x="3197" y="2773" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0003" x="3576" y="2773" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0004" x="3576" y="2773" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0005" x="11" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0006" x="390" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0007" x="769" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0008" x="769" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0009" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0010" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0011" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0012" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0013" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0014" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0015" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0016" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0017" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0018" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE RIGHT0019" x="1148" y="3208" width="368" height="422"/>
+	<SubTexture name="DP NOTE UP0000" x="1527" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0001" x="1884" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0002" x="1884" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0003" x="2241" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0004" x="2241" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0005" x="2598" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0006" x="2955" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0007" x="3312" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0008" x="3312" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0009" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0010" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0011" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0012" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0013" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0014" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0015" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0016" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0017" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0018" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP NOTE UP0019" x="3669" y="3208" width="346" height="459"/>
+	<SubTexture name="DP hey!0000" x="11" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0001" x="11" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0002" x="401" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0003" x="401" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0004" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0005" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0006" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0007" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0008" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0009" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0010" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0011" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0012" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0013" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0014" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0015" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0016" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0017" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0018" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP hey!0019" x="791" y="11" width="379" height="418"/>
+	<SubTexture name="DP idle dance0000" x="1181" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0001" x="1181" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0002" x="1576" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0003" x="1576" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0004" x="1971" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0005" x="1971" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0006" x="2366" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0007" x="2366" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0008" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0009" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0010" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0011" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0012" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0013" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0014" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0015" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0016" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0017" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0018" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP idle dance0019" x="2761" y="11" width="384" height="416"/>
+	<SubTexture name="DP miss alt down0000" x="3156" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0001" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0002" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0003" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0004" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0005" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0006" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0007" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0008" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0009" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0010" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0011" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0012" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0013" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0014" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0015" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0016" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0017" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0018" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt down0019" x="3560" y="11" width="393" height="377"/>
+	<SubTexture name="DP miss alt left0000" x="11" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0001" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0002" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0003" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0004" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0005" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0006" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0007" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0008" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0009" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0010" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0011" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0012" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0013" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0014" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0015" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0016" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0017" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0018" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt left0019" x="413" y="440" width="391" height="436"/>
+	<SubTexture name="DP miss alt right0000" x="815" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0001" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0002" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0003" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0004" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0005" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0006" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0007" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0008" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0009" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0010" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0011" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0012" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0013" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0014" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0015" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0016" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0017" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0018" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt right0019" x="1393" y="440" width="567" height="436"/>
+	<SubTexture name="DP miss alt up0000" x="1971" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0001" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0002" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0003" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0004" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0005" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0006" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0007" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0008" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0009" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0010" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0011" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0012" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0013" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0014" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0015" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0016" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0017" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0018" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss alt up0019" x="2348" y="440" width="366" height="464"/>
+	<SubTexture name="DP miss down0000" x="2725" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0001" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0002" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0003" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0004" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0005" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0006" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0007" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0008" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0009" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0010" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0011" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0012" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0013" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0014" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0015" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0016" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0017" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0018" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss down0019" x="3124" y="440" width="388" height="377"/>
+	<SubTexture name="DP miss left0000" x="3523" y="440" width="382" height="436"/>
+	<SubTexture name="DP miss left0001" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0002" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0003" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0004" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0005" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0006" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0007" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0008" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0009" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0010" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0011" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0012" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0013" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0014" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0015" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0016" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0017" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0018" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss left0019" x="11" y="915" width="382" height="436"/>
+	<SubTexture name="DP miss right0000" x="404" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0001" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0002" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0003" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0004" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0005" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0006" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0007" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0008" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0009" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0010" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0011" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0012" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0013" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0014" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0015" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0016" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0017" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0018" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss right0019" x="792" y="915" width="377" height="436"/>
+	<SubTexture name="DP miss up0000" x="1180" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0001" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0002" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0003" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0004" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0005" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0006" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0007" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0008" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0009" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0010" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0011" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0012" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0013" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0014" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0015" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0016" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0017" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0018" x="1570" y="915" width="379" height="459"/>
+	<SubTexture name="DP miss up0019" x="1570" y="915" width="379" height="459"/>
+</TextureAtlas>

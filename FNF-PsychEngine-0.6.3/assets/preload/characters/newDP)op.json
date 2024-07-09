@@ -1,0 +1,221 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "DP idle dance"
+		},
+		{
+			"offsets": [
+				-3,
+				3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hey",
+			"indices": [],
+			"name": "DP hey!"
+		},
+		{
+			"offsets": [
+				-7,
+				20
+			],
+			"loop": false,
+			"fps": 19,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "DP miss left"
+		},
+		{
+			"offsets": [
+				36,
+				39
+			],
+			"loop": false,
+			"fps": 19,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "DP miss up"
+		},
+		{
+			"offsets": [
+				35,
+				20
+			],
+			"loop": false,
+			"fps": 19,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "DP miss right"
+		},
+		{
+			"offsets": [
+				15,
+				-38
+			],
+			"loop": false,
+			"fps": 19,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "DP miss down"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-4,
+				11
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 19,
+			"name": "DP ALT LEFT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				4,
+				46
+			],
+			"anim": "singUP-alt",
+			"fps": 19,
+			"name": "DP ALT UP",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				27,
+				6
+			],
+			"anim": "singLEFT-alt",
+			"fps": 19,
+			"name": "DP ALT RIGHT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				24,
+				-50
+			],
+			"anim": "singDOWN-alt",
+			"fps": 19,
+			"name": "DP ALT DOWN",
+			"indices": []
+		},
+		{
+			"offsets": [
+				1,
+				20
+			],
+			"loop": false,
+			"fps": 19,
+			"anim": "singRIGHTmiss-alt",
+			"indices": [],
+			"name": "DP miss alt left"
+		},
+		{
+			"offsets": [
+				40,
+				45
+			],
+			"loop": false,
+			"fps": 19,
+			"anim": "singUPmiss-alt",
+			"indices": [],
+			"name": "DP miss alt up"
+		},
+		{
+			"offsets": [
+				230,
+				20
+			],
+			"loop": false,
+			"fps": 19,
+			"anim": "singLEFTmiss-alt",
+			"indices": [],
+			"name": "DP miss alt right"
+		},
+		{
+			"offsets": [
+				20,
+				-38
+			],
+			"loop": false,
+			"fps": 19,
+			"anim": "singDOWNmiss-alt",
+			"indices": [],
+			"name": "DP miss alt down"
+		},
+		{
+			"offsets": [
+				-10,
+				12
+			],
+			"indices": [],
+			"fps": 21,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "DP NOTE LEFT"
+		},
+		{
+			"offsets": [
+				12,
+				41
+			],
+			"indices": [],
+			"fps": 21,
+			"anim": "singUP",
+			"loop": false,
+			"name": "DP NOTE UP"
+		},
+		{
+			"offsets": [
+				10,
+				4
+			],
+			"indices": [],
+			"fps": 21,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "DP NOTE RIGHT"
+		},
+		{
+			"offsets": [
+				20,
+				-49
+			],
+			"indices": [],
+			"fps": 21,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "DP NOTE DOWN"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/newDP",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "newDP",
+	"flip_x": true,
+	"healthbar_colors": [
+		0,
+		0,
+		110
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 7,
+	"scale": 1
+}
