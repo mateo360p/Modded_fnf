@@ -8,6 +8,7 @@ import Controls;
 
 class ClientPrefs {
 	public static var oldIcons:Bool = false;
+	public static var doubleGhostNote:Bool = true;
 
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
@@ -99,6 +100,7 @@ class ClientPrefs {
 
 	public static function saveSettings() {
 		FlxG.save.data.oldIcons = oldIcons;
+		FlxG.save.data.doubleGhostNote = doubleGhostNote;
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.opponentStrums = opponentStrums;
@@ -147,6 +149,9 @@ class ClientPrefs {
 	public static function loadPrefs() {
 		if(FlxG.save.data.oldIcons != null) {
 			oldIcons = FlxG.save.data.oldIcons;
+		}
+		if(FlxG.save.data.doubleGhostNote != null) {
+			doubleGhostNote = FlxG.save.data.doubleGhostNote;
 		}
 		if(FlxG.save.data.downScroll != null) {
 			downScroll = FlxG.save.data.downScroll;

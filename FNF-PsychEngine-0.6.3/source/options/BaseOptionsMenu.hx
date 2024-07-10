@@ -38,6 +38,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	private var grpTexts:FlxTypedGroup<AttachedText>;
 
 	private var boyfriend:Character = null;
+	private var boyfriendGhost:Character = null;
 	private var descBox:FlxSprite;
 	private var descText:FlxText;
 
@@ -116,7 +117,11 @@ class BaseOptionsMenu extends MusicBeatSubstate
 
 			if(optionsArray[i].showBoyfriend && boyfriend == null)
 			{
-				reloadBoyfriend();
+				reloadBoyfriend('normal');
+			}
+			if(optionsArray[i].showBoyfriendGhost && boyfriendGhost == null)
+			{
+				reloadBoyfriend('ghost');
 			}
 			updateTextFrom(optionsArray[i]);
 		}
@@ -262,6 +267,9 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		if(boyfriend != null && boyfriend.animation.curAnim.finished) {
 			boyfriend.dance();
 		}
+		if(boyfriendGhost != null && boyfriendGhost.animation.curAnim.finished) {
+			boyfriendGhost.playAnim('singLEFT');
+		}
 
 		if(nextAccept > 0) {
 			nextAccept -= 1;
@@ -323,26 +331,72 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		{
 			boyfriend.visible = optionsArray[curSelected].showBoyfriend;
 		}
+		if(boyfriendGhost != null)
+		{
+			boyfriendGhost.visible = optionsArray[curSelected].showBoyfriendGhost;
+			if (ClientPrefs.doubleGhostNote)
+				{
+					boyfriendGhost.alpha = 1;
+				}
+				else
+				{
+					boyfriendGhost.alpha = 0;
+				}
+		}
 		curOption = optionsArray[curSelected]; //shorter lol
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
-	public function reloadBoyfriend()
+	public function reloadBoyfriend(boyfriendSel:String)
 	{
 		var wasVisible:Bool = false;
-		if(boyfriend != null) {
-			wasVisible = boyfriend.visible;
-			boyfriend.kill();
-			remove(boyfriend);
-			boyfriend.destroy();
-		}
+		var wasGhostVisible:Bool = false;
+		var ghostLastAlpha:Float = 1;
 
-		boyfriend = new Character(840, 170, 'bf', true);
-		boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
-		boyfriend.updateHitbox();
-		boyfriend.dance();
-		insert(1, boyfriend);
-		boyfriend.visible = wasVisible;
+		if (boyfriendSel == 'normal')
+		{
+			if(boyfriend != null) {
+				wasVisible = boyfriend.visible;
+				boyfriend.kill();
+				remove(boyfriend);
+				boyfriend.destroy();
+			}
+			
+			boyfriend = new Character(840, 170, 'bf', true);
+			boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+			boyfriend.updateHitbox();
+			boyfriend.playAnim;
+			insert(1, boyfriend);
+			boyfriend.visible = wasVisible;
+		}
+		else
+		{
+			if (ClientPrefs.doubleGhostNote)
+			{
+				ghostLastAlpha = 1;
+			}
+			else
+			{
+				ghostLastAlpha = 0;
+			}
+
+			if(boyfriendGhost != null) {
+				ghostLastAlpha = boyfriendGhost.alpha;
+				wasGhostVisible = boyfriendGhost.visible;
+				boyfriendGhost.kill();
+				remove(boyfriendGhost);
+				boyfriendGhost.destroy();
+			}
+			
+			boyfriendGhost = new Character(840, 170, 'bf', true);
+			boyfriendGhost.setGraphicSize(Std.int(boyfriend.width * 1));
+			boyfriendGhost.updateHitbox();
+			boyfriendGhost.color = FlxColor.fromRGB(boyfriendGhost.healthColorArray[0] + 25, boyfriendGhost.healthColorArray[1] + 25, boyfriendGhost.healthColorArray[2] + 25);
+			boyfriendGhost.playAnim('singLEFT');
+			boyfriendGhost.alpha = ghostLastAlpha;
+			insert(1, boyfriendGhost);
+			boyfriendGhost.visible = wasGhostVisible;
+		}
 	}
 
 	function reloadCheckboxes() {
