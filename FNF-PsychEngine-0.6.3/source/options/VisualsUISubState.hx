@@ -41,6 +41,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
+		//Uhhhh I'll code this when I have the colored icons (I do everything help)
 
 		var option:Option = new Option('Ghost on Notes',
 			"When hitting more than one note at the same time,\ncreates a ghost of the character",

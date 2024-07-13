@@ -82,6 +82,10 @@ class PlayState extends MusicBeatState
 	//Double Ghost Stuff1
 	var noteRows:Array<Array<Array<Note>>> = [[],[]];
 	public static var songAllowedGhost:Bool = true;
+	public static var songAllowedHey:Bool = true;
+	public static var heyVolume:Float = 0.5;
+	public static var songAllowedDrainHP:Bool = true;
+
 
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
@@ -180,7 +184,7 @@ class PlayState extends MusicBeatState
 	public var playerStrums:FlxTypedGroup<StrumNote>;
 	public var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
 
-	public var camZooming:Bool = false;
+	public var camZooming:Bool = true;
 	public var camZoomingMult:Float = 1;
 	public var camZoomingDecay:Float = 1;
 	private var curSong:String = "";
@@ -3946,7 +3950,7 @@ class PlayState extends MusicBeatState
 		timeTxt.visible = false;
 		canPause = false;
 		endingSong = true;
-		camZooming = false;
+		camZooming = true;
 		inCutscene = false;
 		updateTime = false;
 
@@ -4569,6 +4573,13 @@ class PlayState extends MusicBeatState
 				}
 			});
 
+			if(FlxG.keys.anyJustPressed(heyKey) && songAllowedHey == true && boyfriend.specialAnim == false && !parsedHoldArray.contains(true)){
+				boyfriend.playAnim('hey', true);
+				boyfriend.specialAnim = true;
+				boyfriend.heyTimer = 0.2;
+				FlxG.sound.play(Paths.sound('eh'), heyVolume);
+			}
+
 			if (parsedHoldArray.contains(true) && !endingSong) {
 				#if ACHIEVEMENTS_ALLOWED
 				var achieve:String = checkForAchievement(['oversinging']);
@@ -4698,6 +4709,9 @@ class PlayState extends MusicBeatState
 
 	function opponentNoteHit(note:Note):Void
 	{
+		if (health > 0.05 && songAllowedDrainHP)
+		health -= note.opponentHitHealth;
+		
 		if (Paths.formatToSongPath(SONG.song) != 'tutorial')
 			camZooming = true;
 
@@ -4717,12 +4731,6 @@ class PlayState extends MusicBeatState
 
 			var char:Character = dad;
 			var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))] + altAnim;
-
-			if(char != null)
-			{
-				char.playAnim(animToPlay, true);
-				char.holdTimer = 0;
-			}
 
 			if(note.gfNote) {
 				char = gf;
@@ -4752,6 +4760,12 @@ class PlayState extends MusicBeatState
 						char.playAnim(animToPlay, true);
 						// dad.angle = 0;
 					}
+			}
+
+			if(char != null)
+			{
+				char.playAnim(animToPlay, true);
+				char.holdTimer = 0;
 			}
 
 		}
