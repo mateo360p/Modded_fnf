@@ -3477,7 +3477,7 @@ class PlayState extends MusicBeatState
 						if(val > 2) who = boyfriend;
 						//2 only targets dad
 						dadbattleLight.alpha = 0;
-						new FlxTimer().start(0.12, function(tmr:FlxTimer) {
+						new FlxTimer().start(0.05, function(tmr:FlxTimer) {
 							dadbattleLight.alpha = 0.375;
 						});
 						dadbattleLight.setPosition(who.getGraphicMidpoint().x - dadbattleLight.width / 2, who.y + who.height - dadbattleLight.height + 50);
@@ -3978,9 +3978,14 @@ class PlayState extends MusicBeatState
 			{
 				#if !switch
 				var percent:Float = ratingPercent;
-				if(Math.isNaN(percent)) percent = 0;
-				Highscore.saveScore(SONG.song, songScore, storyDifficulty, percent);
+				if(Math.isNaN(percent)) percent = 0; {
+					/*if(storyDifficultyText == 'Night'){
+						Highscore.saveNightScore(SONG.song, songScore, percent);
+					} else {*/
+						Highscore.saveScore(SONG.song, songScore, storyDifficulty, percent);
+					//}
 				#end
+				}
 			}
 			playbackRate = 1;
 
@@ -4110,6 +4115,7 @@ class PlayState extends MusicBeatState
 
 	function createGhost(char:String, animToPlay:String)
 		{
+			//Ghost shit
 			var tweenTime:Float = 0.5;
 			var dadGhostTween:FlxTween = null;
 			var bfGhostTween:FlxTween = null;
@@ -4182,6 +4188,23 @@ class PlayState extends MusicBeatState
 					});
 			}
 		}
+	function doCustomhey(char:Character, ?animToPlay:String = 'hey' , ?customDelayDuration:Float = 0.075, ?customSound:String = 'eh')
+	{
+		//hey shit
+		var returnHey:Bool = true;
+
+		if (returnHey = true) {
+			returnHey = false;
+			char.playAnim(animToPlay, true);
+			char.specialAnim = true;
+			FlxG.sound.play(Paths.sound(customSound), heyVolume);
+			new FlxTimer().start(customDelayDuration, function(grrr:FlxTimer)
+			{
+				returnHey = true;
+			});
+
+		}
+	}
 
 
 	public var totalPlayed:Int = 0;
@@ -4573,11 +4596,9 @@ class PlayState extends MusicBeatState
 				}
 			});
 
+			//hey shit
 			if(FlxG.keys.anyJustPressed(heyKey) && songAllowedHey == true && boyfriend.specialAnim == false && !parsedHoldArray.contains(true)){
-				boyfriend.playAnim('hey', true);
-				boyfriend.specialAnim = true;
-				boyfriend.heyTimer = 0.2;
-				FlxG.sound.play(Paths.sound('eh'), heyVolume);
+				doCustomhey(boyfriend);
 			}
 
 			if (parsedHoldArray.contains(true) && !endingSong) {

@@ -211,6 +211,7 @@ class ChartingState extends MusicBeatState
 			CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
 
 			_song = {
+				altSong: false,
 				song: 'Test',
 				notes: [],
 				events: [],
@@ -407,6 +408,15 @@ class ChartingState extends MusicBeatState
 	{
 		UI_songTitle = new FlxUIInputText(10, 10, 70, _song.song, 8);
 		blockPressWhileTypingOn.push(UI_songTitle);
+
+		var alt_song = new FlxUICheckBox(100, 100, null, null, "It's alt Song", 100);
+		alt_song.checked = _song.altSong;
+
+		alt_song.callback = function()
+		{
+			_song.altSong = alt_song.checked;
+			//trace('CHECKED!');
+		};
 
 		var check_voices = new FlxUICheckBox(10, 25, null, null, "Has voice track", 100);
 		check_voices.checked = _song.needsVoices;
@@ -609,6 +619,7 @@ class ChartingState extends MusicBeatState
 		tab_group_song.name = "Song";
 		tab_group_song.add(UI_songTitle);
 
+		tab_group_song.add(alt_song);
 		tab_group_song.add(check_voices);
 		tab_group_song.add(clear_events);
 		tab_group_song.add(clear_notes);

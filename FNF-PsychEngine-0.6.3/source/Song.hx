@@ -14,6 +14,7 @@ using StringTools;
 
 typedef SwagSong =
 {
+	var altSong:Bool;
 	var song:String;
 	var notes:Array<SwagSection>;
 	var events:Array<Dynamic>;
@@ -33,6 +34,7 @@ typedef SwagSong =
 
 class Song
 {
+	public var altSong:Bool = false;
 	public var song:String;
 	public var notes:Array<SwagSection>;
 	public var events:Array<Dynamic>;

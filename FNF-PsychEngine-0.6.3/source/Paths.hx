@@ -221,6 +221,9 @@ class Paths
 	inline static public function voices(song:String):Any
 	{
 		var songKey:String = '${formatToSongPath(song)}/Voices';
+		if (PlayState.SONG.altSong) {
+			songKey = '${formatToSongPath(song)}/Voices_alt';
+		}
 		var voices = returnSound('songs', songKey);
 		return voices;
 	}
@@ -228,6 +231,9 @@ class Paths
 	inline static public function inst(song:String):Any
 	{
 		var songKey:String = '${formatToSongPath(song)}/Inst';
+		if (PlayState.SONG.altSong) {
+			songKey = '${formatToSongPath(song)}/Inst_alt';
+		}
 		var inst = returnSound('songs', songKey);
 		return inst;
 	}

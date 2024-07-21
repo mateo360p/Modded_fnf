@@ -4,5 +4,18 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"haxe.inlayHints": {
+			"conditionals": true
+		},
+		"cSpell.enableFiletypes": [
+			"haxe.argument",
+			"haxe.type"
+		],
+		"editor.suggest.shareSuggestSelections": true,
+		"editor.suggest.showStatusBar": true,
+		"workbench.commandPalette.experimental.suggestCommands": true,
+		"cSpell.showAutocompleteSuggestions": true,
+		"editor.suggest.preview": true
+	}
 }
