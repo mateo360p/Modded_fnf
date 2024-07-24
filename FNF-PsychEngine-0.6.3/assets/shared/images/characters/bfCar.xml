@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="bfCar.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="BF.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
 	<SubTexture name="BF NOTE DOWN0000" x="0" y="0" width="374" height="357" frameX="-1" frameY="-5" frameWidth="375" frameHeight="362"/>
 	<SubTexture name="BF NOTE DOWN0001" x="384" y="0" width="374" height="357" frameX="-1" frameY="-5" frameWidth="375" frameHeight="362"/>
 	<SubTexture name="BF NOTE DOWN0002" x="768" y="0" width="373" height="362" frameX="0" frameY="0" frameWidth="375" frameHeight="362"/>
@@ -272,4 +272,30 @@
 	<SubTexture name="BF idle dance0011" x="1674" y="1763" width="408" height="412" frameX="-2" frameY="0" frameWidth="411" frameHeight="412"/>
 	<SubTexture name="BF idle dance0012" x="420" y="1763" width="408" height="412" frameX="-2" frameY="0" frameWidth="411" frameHeight="412"/>
 	<SubTexture name="BF idle dance0013" x="838" y="1763" width="408" height="412" frameX="-2" frameY="0" frameWidth="411" frameHeight="412"/>
+	<SubTexture name="BF HEY!!0000" x="0" y="2595" width="398" height="420" frameX="2" frameY="2" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0001" x="398" y="2595" width="398" height="420" frameX="2" frameY="2" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0002" x="1672" y="2179" width="417" height="414" frameX="2" frameY="-6" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0003" x="2089" y="2179" width="417" height="414" frameX="2" frameY="-6" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0004" x="836" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0005" x="0" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0006" x="418" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0007" x="1254" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0008" x="836" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0009" x="0" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0010" x="418" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0011" x="1254" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0012" x="836" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0013" x="0" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0014" x="418" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0015" x="1254" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0016" x="836" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0017" x="0" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0018" x="418" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0019" x="1254" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0020" x="836" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0021" x="0" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0022" x="418" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0023" x="1254" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0024" x="836" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
+	<SubTexture name="BF HEY!!0025" x="0" y="2179" width="418" height="416" frameX="2" frameY="-4" frameWidth="414" frameHeight="418"/>
 </TextureAtlas>
