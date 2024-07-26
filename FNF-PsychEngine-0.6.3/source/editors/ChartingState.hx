@@ -699,6 +699,7 @@ class ChartingState extends MusicBeatState
 		stepperSectionBPM.name = 'section_bpm';
 		blockPressWhileTypingOnStepper.push(stepperSectionBPM);
 
+
 		var check_eventsSec:FlxUICheckBox = null;
 		var check_notesSec:FlxUICheckBox = null;
 		var copyButton:FlxButton = new FlxButton(10, 190, "Copy Section", function()
@@ -799,9 +800,9 @@ class ChartingState extends MusicBeatState
 		clearSectionButton.color = FlxColor.RED;
 		clearSectionButton.label.color = FlxColor.WHITE;
 		
-		check_notesSec = new FlxUICheckBox(10, clearSectionButton.y + 25, null, null, "Notes", 100);
+		check_notesSec = new FlxUICheckBox(10, clearSectionButton.y + 25, null, null, "Notes", 75);
 		check_notesSec.checked = true;
-		check_eventsSec = new FlxUICheckBox(check_notesSec.x + 100, check_notesSec.y, null, null, "Events", 100);
+		check_eventsSec = new FlxUICheckBox(check_notesSec.x + 100, check_notesSec.y, null, null, "Events", 75);
 		check_eventsSec.checked = true;
 
 		var swapSection:FlxButton = new FlxButton(10, check_notesSec.y + 40, "Swap section", function()
@@ -816,46 +817,54 @@ class ChartingState extends MusicBeatState
 		});
 
 		var stepperCopy:FlxUINumericStepper = null;
+		var check_LasteventsSec:FlxUICheckBox = null;
+		var check_LastnotesSec:FlxUICheckBox = null;
 		var copyLastButton:FlxButton = new FlxButton(10, swapSection.y + 30, "Copy last section", function()
 		{
 			var value:Int = Std.int(stepperCopy.value);
-			if(value == 0) return;
-
+				if(value == 0) return;
 			var daSec = FlxMath.maxInt(curSec, value);
-
-			for (note in _song.notes[daSec - value].sectionNotes)
-			{
-				var strum = note[0] + Conductor.stepCrochet * (getSectionBeats(daSec) * 4 * value);
-
-
-				var copiedNote:Array<Dynamic> = [strum, note[1], note[2], note[3]];
-				_song.notes[daSec].sectionNotes.push(copiedNote);
-			}
-
-			var startThing:Float = sectionStartTime(-value);
-			var endThing:Float = sectionStartTime(-value + 1);
-			for (event in _song.events)
-			{
-				var strumTime:Float = event[0];
-				if(endThing > event[0] && event[0] >= startThing)
+			if (check_LastnotesSec.checked) {
+				for (note in _song.notes[daSec - value].sectionNotes)
 				{
-					strumTime += Conductor.stepCrochet * (getSectionBeats(daSec) * 4 * value);
-					var copiedEventArray:Array<Dynamic> = [];
-					for (i in 0...event[1].length)
+					var strum = note[0] + Conductor.stepCrochet * (getSectionBeats(daSec) * 4 * value);
+
+
+					var copiedNote:Array<Dynamic> = [strum, note[1], note[2], note[3]];
+					_song.notes[daSec].sectionNotes.push(copiedNote);
+				}
+			}
+			if (check_LasteventsSec.checked) {
+				var startThing:Float = sectionStartTime(-value);
+				var endThing:Float = sectionStartTime(-value + 1);
+				for (event in _song.events)
+				{
+					var strumTime:Float = event[0];
+					if(endThing > event[0] && event[0] >= startThing)
 					{
-						var eventToPush:Array<Dynamic> = event[1][i];
-						copiedEventArray.push([eventToPush[0], eventToPush[1], eventToPush[2]]);
+						strumTime += Conductor.stepCrochet * (getSectionBeats(daSec) * 4 * value);
+						var copiedEventArray:Array<Dynamic> = [];
+						for (i in 0...event[1].length)
+						{
+							var eventToPush:Array<Dynamic> = event[1][i];
+							copiedEventArray.push([eventToPush[0], eventToPush[1], eventToPush[2]]);
+						}
+						_song.events.push([strumTime, copiedEventArray]);
 					}
-					_song.events.push([strumTime, copiedEventArray]);
 				}
 			}
 			updateGrid();
 		});
 		copyLastButton.setGraphicSize(80, 30);
 		copyLastButton.updateHitbox();
-		
+
 		stepperCopy = new FlxUINumericStepper(copyLastButton.x + 100, copyLastButton.y, 1, 1, -999, 999, 0);
 		blockPressWhileTypingOnStepper.push(stepperCopy);
+
+		check_LastnotesSec = new FlxUICheckBox(stepperCopy.x + 100, stepperCopy.y, null, null, "Notes", 75);
+		check_LastnotesSec.checked = true;
+		check_LasteventsSec = new FlxUICheckBox(check_LastnotesSec.x, check_LastnotesSec.y + 20, null, null, "Events", 75);
+		check_LasteventsSec.checked = true;
 
 		var duetButton:FlxButton = new FlxButton(10, copyLastButton.y + 45, "Duet Notes", function()
 		{
@@ -914,6 +923,8 @@ class ChartingState extends MusicBeatState
 		tab_group_section.add(clearSectionButton);
 		tab_group_section.add(check_notesSec);
 		tab_group_section.add(check_eventsSec);
+		tab_group_section.add(check_LastnotesSec);
+		tab_group_section.add(check_LasteventsSec);
 		tab_group_section.add(swapSection);
 		tab_group_section.add(stepperCopy);
 		tab_group_section.add(copyLastButton);
