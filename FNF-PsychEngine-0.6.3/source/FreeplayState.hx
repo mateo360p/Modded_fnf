@@ -1,5 +1,6 @@
 package;
 
+import flixel.tweens.FlxEase;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -54,7 +55,10 @@ class FreeplayState extends MusicBeatState
 	{
 		//Paths.clearStoredMemory();
 		//Paths.clearUnusedMemory();
-		
+		if (vocals == null){
+			Conductor.changeBPM(102);
+		} else {
+		}
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
@@ -241,6 +245,8 @@ class FreeplayState extends MusicBeatState
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
 
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 24, 0, 1)));
 		lerpRating = FlxMath.lerp(lerpRating, intendedRating, CoolUtil.boundTo(elapsed * 12, 0, 1));
@@ -331,24 +337,38 @@ class FreeplayState extends MusicBeatState
 			if(instPlaying != curSelected)
 			{
 				#if PRELOAD_ALL
+				if (ClientPrefs.flashing) {}
 				destroyFreeplayVocals();
-				FlxG.sound.music.volume = 0;
+				//FlxG.sound.music.volume = 0;
+				FlxTween.tween(FlxG.sound.music, {volume: 0}, 0.2, {ease: FlxEase.quadOut});
 				Paths.currentModDirectory = songs[curSelected].folder;
 				var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
 				PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
+
 				if (PlayState.SONG.needsVoices)
 					vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 				else
 					vocals = new FlxSound();
-
+				Conductor.changeBPM(PlayState.SONG.bpm);
 				FlxG.sound.list.add(vocals);
-				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
-				vocals.play();
+				vocals.volume = 0;
+				if (ClientPrefs.loopedSongs){
+					FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7, true);
+					vocals.looped = true;
+					vocals.time = FlxG.sound.music.time;
+					vocals.fadeIn(0.5, 0, 0.7);
+					vocals.play();
+				} else {
+					vocals.looped = false;
+					FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7, false);
+					FlxG.sound.music.onComplete = returnFreaky.bind();
+					vocals.fadeIn(0.65, 0, 0.7);
+					vocals.play();
+				}
 				vocals.persist = true;
-				vocals.looped = true;
-				vocals.volume = 0.7;
 				instPlaying = curSelected;
 				#end
+				//uhhhhhhhhhh I should organize this, maybe later
 			}
 		}
 
@@ -368,6 +388,8 @@ class FreeplayState extends MusicBeatState
 			}*/
 			trace(poop);
 
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			if (ClientPrefs.flashing) {FlxG.camera.flash(FlxColor.WHITE, 0.5);}
 			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;
@@ -394,6 +416,24 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 		super.update(elapsed);
+	}
+
+	override function beatHit()
+	{
+		super.beatHit();
+		if (vocals == null && ClientPrefs.camZooms){
+			FlxG.camera.zoom += 0.025;
+			FlxTween.tween(FlxG.camera, {zoom: 1}, 0.4, {ease: FlxEase.quadOut});
+		}
+	}
+
+	override function stepHit()
+	{
+		super.stepHit();
+		if (vocals != null && curStep % 8 == 0 && ClientPrefs.camZooms){
+			FlxTween.tween(FlxG.camera, {zoom: 1.02}, 0.01, {ease: FlxEase.quadOut});
+			FlxTween.tween(FlxG.camera, {zoom: 1}, 0.3, {ease: FlxEase.quadOut});
+		}
 	}
 
 	public static function destroyFreeplayVocals() {
@@ -531,6 +571,13 @@ class FreeplayState extends MusicBeatState
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
 		diffText.x -= diffText.width / 2;
+	}
+
+	private function returnFreaky(){
+		destroyFreeplayVocals();
+		FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+		FlxG.sound.music.fadeIn(1.5, 0, 0.7);
+		Conductor.changeBPM(102);
 	}
 }
 

@@ -46,8 +46,8 @@ typedef TitleData =
 	titley:Float,
 	startx:Float,
 	starty:Float,
-	gfx:Float,
-	gfy:Float,
+	DPx:Float,
+	DPy:Float,
 	backgroundSprite:String,
 	bpm:Int
 }
@@ -56,6 +56,7 @@ class TitleState extends MusicBeatState
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
+	public static var flashy:Bool = true;
 
 	public static var initialized:Bool = false;
 
@@ -160,24 +161,24 @@ class TitleState extends MusicBeatState
 		Highscore.load();
 
 		// IGNORE THIS!!!
-		titleJSON = Json.parse(Paths.getTextFromFile('images/gfDanceTitle.json'));
+		titleJSON = Json.parse(Paths.getTextFromFile('images/DPdanceTitle.json'));
 
 		#if TITLE_SCREEN_EASTER_EGG
 		if (FlxG.save.data.psychDevsEasterEgg == null) FlxG.save.data.psychDevsEasterEgg = ''; //Crash prevention
 		switch(FlxG.save.data.psychDevsEasterEgg.toUpperCase())
 		{
 			case 'SHADOW':
-				titleJSON.gfx += 210;
-				titleJSON.gfy += 40;
+				titleJSON.DPx += 210;
+				titleJSON.DPy += 40;
 			case 'RIVER':
-				titleJSON.gfx += 100;
-				titleJSON.gfy += 20;
+				titleJSON.DPx += 100;
+				titleJSON.DPy += 20;
 			case 'SHUBS':
-				titleJSON.gfx += 160;
-				titleJSON.gfy -= 10;
+				titleJSON.DPx += 160;
+				titleJSON.DPy -= 10;
 			case 'BBPANZU':
-				titleJSON.gfx += 45;
-				titleJSON.gfy += 100;
+				titleJSON.DPx += 45;
+				titleJSON.DPy += 100;
 		}
 		#end
 
@@ -232,7 +233,7 @@ class TitleState extends MusicBeatState
 	}
 
 	var logoBl:FlxSprite;
-	var gfDance:FlxSprite;
+	var DPdance:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 	var swagShader:ColorSwap = null;
@@ -294,7 +295,7 @@ class TitleState extends MusicBeatState
 		// logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
-		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
+		DPdance = new FlxSprite(titleJSON.DPx, titleJSON.DPy);
 
 		var easterEgg:String = FlxG.save.data.psychDevsEasterEgg;
 		if(easterEgg == null) easterEgg = ''; //html5 fix
@@ -303,35 +304,35 @@ class TitleState extends MusicBeatState
 		{
 			#if TITLE_SCREEN_EASTER_EGG
 			case 'SHADOW':
-				gfDance.frames = Paths.getSparrowAtlas('ShadowBump');
-				gfDance.animation.addByPrefix('danceLeft', 'Shadow Title Bump', 24);
-				gfDance.animation.addByPrefix('danceRight', 'Shadow Title Bump', 24);
+				DPdance.frames = Paths.getSparrowAtlas('ShadowBump');
+				DPdance.animation.addByPrefix('danceLeft', 'Shadow Title Bump', 24);
+				DPdance.animation.addByPrefix('danceRight', 'Shadow Title Bump', 24);
 			case 'RIVER':
-				gfDance.frames = Paths.getSparrowAtlas('RiverBump');
-				gfDance.animation.addByIndices('danceLeft', 'River Title Bump', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-				gfDance.animation.addByIndices('danceRight', 'River Title Bump', [29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				DPdance.frames = Paths.getSparrowAtlas('RiverBump');
+				DPdance.animation.addByIndices('danceLeft', 'River Title Bump', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				DPdance.animation.addByIndices('danceRight', 'River Title Bump', [29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 			case 'SHUBS':
-				gfDance.frames = Paths.getSparrowAtlas('ShubBump');
-				gfDance.animation.addByPrefix('danceLeft', 'Shub Title Bump', 24, false);
-				gfDance.animation.addByPrefix('danceRight', 'Shub Title Bump', 24, false);
+				DPdance.frames = Paths.getSparrowAtlas('ShubBump');
+				DPdance.animation.addByPrefix('danceLeft', 'Shub Title Bump', 24, false);
+				DPdance.animation.addByPrefix('danceRight', 'Shub Title Bump', 24, false);
 			case 'BBPANZU':
-				gfDance.frames = Paths.getSparrowAtlas('BBBump');
-				gfDance.animation.addByIndices('danceLeft', 'BB Title Bump', [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "", 24, false);
-				gfDance.animation.addByIndices('danceRight', 'BB Title Bump', [27, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "", 24, false);
+				DPdance.frames = Paths.getSparrowAtlas('BBBump');
+				DPdance.animation.addByIndices('danceLeft', 'BB Title Bump', [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "", 24, false);
+				DPdance.animation.addByIndices('danceRight', 'BB Title Bump', [27, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "", 24, false);
 			#end
 
 			default:
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
-				gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
-				gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				DPdance.frames = Paths.getSparrowAtlas('DPdanceTitle');
+				DPdance.animation.addByIndices('danceLeft', 'DPdance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				DPdance.animation.addByIndices('danceRight', 'DPdance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		}
-		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
+		DPdance.antialiasing = ClientPrefs.globalAntialiasing;
 
-		add(gfDance);
-		gfDance.shader = swagShader.shader;
+		add(DPdance);
+		DPdance.shader = swagShader.shader;
 		add(logoBl);
 		logoBl.shader = swagShader.shader;
 
@@ -494,10 +495,10 @@ class TitleState extends MusicBeatState
 			{
 				titleText.color = FlxColor.WHITE;
 				titleText.alpha = 1;
-				
+				flashy = false;
 				if(titleText != null) titleText.animation.play('press');
 
-				FlxG.camera.flash(ClientPrefs.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
+				if (ClientPrefs.flashing) {FlxG.camera.flash(FlxColor.WHITE, 1, null, true);}
 				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
 
 				transitioning = true;
@@ -619,16 +620,18 @@ class TitleState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
-
+		var color:FlxColor = FlxColor.GREEN;
+		color.alphaFloat = 0.25;
+		if (flashy && ClientPrefs.flashing) {FlxG.camera.flash(color, 0.6);}
 		if(logoBl != null)
 			logoBl.animation.play('bump', true);
 
-		if(gfDance != null) {
+		if(DPdance != null) {
 			danceLeft = !danceLeft;
 			if (danceLeft)
-				gfDance.animation.play('danceRight');
+				DPdance.animation.play('danceRight');
 			else
-				gfDance.animation.play('danceLeft');
+				DPdance.animation.play('danceLeft');
 		}
 
 		if(!closedState) {
@@ -728,10 +731,10 @@ class TitleState extends MusicBeatState
 					case 'BBPANZU':
 						sound = FlxG.sound.play(Paths.sound('JingleBB'));
 
-					default: //Go back to normal ugly ass boring GF
+					default: //Go back to normal ugly ass boring DP, wait why did-
 						remove(ngSpr);
 						remove(credGroup);
-						FlxG.camera.flash(FlxColor.WHITE, 2);
+						if (ClientPrefs.flashing) {FlxG.camera.flash(FlxColor.WHITE, 2);}
 						skippedIntro = true;
 						playJingle = false;
 
@@ -747,7 +750,7 @@ class TitleState extends MusicBeatState
 					{
 						remove(ngSpr);
 						remove(credGroup);
-						FlxG.camera.flash(FlxColor.WHITE, 0.6);
+						if (ClientPrefs.flashing) {FlxG.camera.flash(FlxColor.WHITE, 0.6);}
 						transitioning = false;
 					});
 				}
@@ -755,7 +758,7 @@ class TitleState extends MusicBeatState
 				{
 					remove(ngSpr);
 					remove(credGroup);
-					FlxG.camera.flash(FlxColor.WHITE, 3);
+					if (ClientPrefs.flashing) {FlxG.camera.flash(FlxColor.WHITE, 3);}
 					sound.onComplete = function() {
 						FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
@@ -768,7 +771,7 @@ class TitleState extends MusicBeatState
 			{
 				remove(ngSpr);
 				remove(credGroup);
-				FlxG.camera.flash(FlxColor.WHITE, 4);
+				if (ClientPrefs.flashing) {FlxG.camera.flash(FlxColor.WHITE, 4, null, true);}
 
 				var easteregg:String = FlxG.save.data.psychDevsEasterEgg;
 				if (easteregg == null) easteregg = '';

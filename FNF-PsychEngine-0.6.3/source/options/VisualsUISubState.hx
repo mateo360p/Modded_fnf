@@ -44,16 +44,13 @@ class VisualsUISubState extends BaseOptionsMenu
 		//Uhhhh I'll code this when I have the colored icons (I do everything help)
 		//well, that was easy
 
-		var option:Option = new Option('Ghost on Notes',
-			"When hitting more than one note at the same time,\ncreates a ghost of the character",
-			'doubleGhostNote',
+		var option:Option = new Option('Looped Freeplay Songs',
+			"If checked, the songs played(i mean \"listened\") in the freeplay menu\nwould be looped",
+			'loopedSongs',
 			'bool',
-			true);
-		option.showBoyfriend = true;
-		option.showBoyfriendGhost = true;
+			false);
 		addOption(option);
-		option.onChange = onChangeGhost;
-			
+
 		var option:Option = new Option('Note Splashes',
 			"If unchecked, hitting \"Sick!\" notes won't show particles.",
 			'noteSplashes',
@@ -136,14 +133,6 @@ class VisualsUISubState extends BaseOptionsMenu
 	}
 
 	var changedMusic:Bool = false;
-	function onChangeGhost()
-	{
-		if(ClientPrefs.doubleGhostNote)
-			boyfriendGhost.alpha = 1;
-		else
-			boyfriendGhost.alpha = 0;
-	}
-
 	function onChangePauseMusic()
 	{
 		if(ClientPrefs.pauseMusic == 'None')

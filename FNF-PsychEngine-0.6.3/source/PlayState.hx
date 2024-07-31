@@ -79,6 +79,8 @@ using StringTools;
 
 class PlayState extends MusicBeatState
 {
+	public static var usedPractice:Bool = (ClientPrefs.getGameplaySetting('practice', false) || ClientPrefs.getGameplaySetting('botplay', false));
+	public static var stickerTransition:FlxSprite;
 	//Double Ghost Stuff1
 	var noteRows:Array<Array<Array<Note>>> = [[],[]];
 	public static var songAllowedGhost:Bool = true;
@@ -424,7 +426,7 @@ class PlayState extends MusicBeatState
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);
-		CustomFadeTransition.nextCamera = camOther;
+		CheaperStickerTransition.nextCamera = camOther;
 
 		persistentUpdate = true;
 		persistentDraw = true;
@@ -1414,7 +1416,7 @@ class PlayState extends MusicBeatState
 		}
 		Paths.clearUnusedMemory();
 		
-		CustomFadeTransition.nextCamera = camOther;
+		CheaperStickerTransition.nextCamera = camOther;
 	}
 
 	#if (!flash && sys)
@@ -2382,6 +2384,7 @@ class PlayState extends MusicBeatState
 
 	function startSong():Void
 	{
+		precacheList.set('CheaperStickerTransition', 'sound');
 		startingSong = false;
 
 		previousFrameTime = FlxG.game.ticks;
@@ -4010,7 +4013,7 @@ class PlayState extends MusicBeatState
 
 					cancelMusicFadeTween();
 					if(FlxTransitionableState.skipNextTransIn) {
-						CustomFadeTransition.nextCamera = null;
+						CheaperStickerTransition.nextCamera = null;
 					}
 					MusicBeatState.switchState(new StoryMenuState());
 
@@ -4073,7 +4076,7 @@ class PlayState extends MusicBeatState
 				WeekData.loadTheFirstEnabledMod();
 				cancelMusicFadeTween();
 				if(FlxTransitionableState.skipNextTransIn) {
-					CustomFadeTransition.nextCamera = null;
+					CheaperStickerTransition.nextCamera = null;
 				}
 				MusicBeatState.switchState(new FreeplayState());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
@@ -4140,7 +4143,7 @@ class PlayState extends MusicBeatState
 					//tween = dadGhostTween ;
 			}
 
-			ghost.antialiasing = ClientPrefs.globalAntialiasing;
+			ghost.antialiasing = player.antialiasing;
 			ghost.scale.copyFrom(player.scale);
 			ghost.updateHitbox();
 			ghost.frames = player.frames;
@@ -5432,7 +5435,6 @@ class PlayState extends MusicBeatState
 	{
 		if(chartingMode) return null;
 
-		var usedPractice:Bool = (ClientPrefs.getGameplaySetting('practice', false) || ClientPrefs.getGameplaySetting('botplay', false));
 		for (i in 0...achievesToCheck.length) {
 			var achievementName:String = achievesToCheck[i];
 			if(!Achievements.isAchievementUnlocked(achievementName) && !cpuControlled) {

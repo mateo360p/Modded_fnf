@@ -34,6 +34,16 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		title = 'Gameplay Settings';
 		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
 
+		var option:Option = new Option('Ghost on Notes',
+		"When hitting more than one note at the same time,\ncreates a ghost of the character",
+		'doubleGhostNote',
+		'bool',
+		true);
+		option.showBoyfriend = true;
+		option.showBoyfriendGhost = true;
+		addOption(option);
+		option.onChange = onChangeGhost;
+
 		var option:Option = new Option('Controller Mode',
 			'Check this if you want to play with\na controller instead of using your Keyboard.',
 			'controllerMode',
@@ -151,5 +161,13 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 	function onChangeHitsoundVolume()
 	{
 		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.hitsoundVolume);
+	}
+
+	function onChangeGhost()
+	{
+		if(ClientPrefs.doubleGhostNote)
+			boyfriendGhost.alpha = 1;
+		else
+			boyfriendGhost.alpha = 0;
 	}
 }

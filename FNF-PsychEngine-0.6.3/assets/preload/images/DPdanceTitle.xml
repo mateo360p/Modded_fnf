@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DPdanceTitle.png">
+	<!-- Created with Adobe Animate version 23.0.2.103 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="DPdance0000" x="0" y="0" width="699" height="617" frameX="-2" frameY="-3" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0001" x="704" y="0" width="703" height="617" frameX="0" frameY="-3" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0002" x="1412" y="0" width="703" height="605" frameX="0" frameY="-15" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0003" x="2120" y="0" width="699" height="605" frameX="-2" frameY="-15" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0004" x="2824" y="0" width="699" height="607" frameX="-2" frameY="-13" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0005" x="0" y="622" width="699" height="607" frameX="-2" frameY="-13" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0006" x="704" y="622" width="699" height="611" frameX="-2" frameY="-9" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0007" x="1408" y="622" width="699" height="618" frameX="-2" frameY="-2" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0008" x="1408" y="622" width="699" height="618" frameX="-2" frameY="-2" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0009" x="1408" y="622" width="699" height="618" frameX="-2" frameY="-2" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0010" x="2112" y="622" width="699" height="620" frameX="-2" frameY="0" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0011" x="2112" y="622" width="699" height="620" frameX="-2" frameY="0" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0012" x="2112" y="622" width="699" height="620" frameX="-2" frameY="0" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0013" x="2816" y="622" width="699" height="620" frameX="-2" frameY="0" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0014" x="2816" y="622" width="699" height="620" frameX="-2" frameY="0" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0015" x="0" y="1247" width="699" height="612" frameX="-2" frameY="-8" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0016" x="704" y="1247" width="703" height="612" frameX="0" frameY="-8" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0017" x="1412" y="1247" width="703" height="611" frameX="0" frameY="-9" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0018" x="2120" y="1247" width="699" height="611" frameX="-2" frameY="-9" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0019" x="2824" y="1247" width="699" height="613" frameX="-2" frameY="-7" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0020" x="0" y="1865" width="699" height="613" frameX="-2" frameY="-7" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0021" x="704" y="1865" width="699" height="615" frameX="-2" frameY="-5" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0022" x="1408" y="1865" width="699" height="619" frameX="-2" frameY="-1" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0023" x="1408" y="1865" width="699" height="619" frameX="-2" frameY="-1" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0024" x="1408" y="1865" width="699" height="619" frameX="-2" frameY="-1" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0025" x="2112" y="1865" width="699" height="620" frameX="-2" frameY="0" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0026" x="2112" y="1865" width="699" height="620" frameX="-2" frameY="0" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0027" x="2112" y="1865" width="699" height="620" frameX="-2" frameY="0" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0028" x="2816" y="1865" width="699" height="619" frameX="-2" frameY="-1" frameWidth="703" frameHeight="620"/>
+	<SubTexture name="DPdance0029" x="2816" y="1865" width="699" height="619" frameX="-2" frameY="-1" frameWidth="703" frameHeight="620"/>
+</TextureAtlas>
