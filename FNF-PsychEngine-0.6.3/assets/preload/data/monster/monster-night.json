@@ -1,0 +1,175 @@
+{
+	"song": {
+		"player1": "DP)pl",
+		"gfVersion": "gf",
+		"notes": [
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [
+					[
+						550,
+						1,
+						0
+					],
+					[
+						1150,
+						3,
+						0
+					],
+					[
+						1200,
+						0,
+						100
+					],
+					[
+						1500,
+						1,
+						0
+					],
+					[
+						450,
+						2,
+						0
+					]
+				],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 150
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [
+					[
+						2000,
+						3,
+						0
+					],
+					[
+						1750,
+						2,
+						0
+					],
+					[
+						2700,
+						0,
+						0
+					],
+					[
+						2850,
+						2,
+						0
+					],
+					[
+						3000,
+						3,
+						100
+					]
+				],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 150
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [
+					[
+						3250,
+						0,
+						0
+					],
+					[
+						3400,
+						2,
+						0
+					],
+					[
+						3500,
+						3,
+						200
+					],
+					[
+						4100,
+						2,
+						0
+					],
+					[
+						4300,
+						1,
+						0
+					],
+					[
+						4400,
+						3,
+						0
+					],
+					[
+						4500,
+						0,
+						0
+					],
+					[
+						4600,
+						2,
+						0
+					],
+					[
+						4600,
+						0,
+						0
+					]
+				],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 150
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [
+					[
+						5300,
+						2,
+						0,
+						"Hey!"
+					]
+				],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 150
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 150,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			}
+		],
+		"events": [],
+		"player2": "bf",
+		"splashSkin": "noteSplashes",
+		"song": "nulla",
+		"needsVoices": true,
+		"arrowSkin": "",
+		"altSong": false,
+		"stage": "stage",
+		"validScore": true,
+		"album": "nulla",
+		"bpm": 150,
+		"speed": 3
+	}
+}

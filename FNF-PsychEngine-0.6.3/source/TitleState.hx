@@ -59,6 +59,7 @@ class TitleState extends MusicBeatState
 	public static var flashy:Bool = true;
 
 	public static var initialized:Bool = false;
+	public static var titleJSON:TitleData;
 
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
@@ -82,8 +83,6 @@ class TitleState extends MusicBeatState
 	#end
 
 	var mustUpdate:Bool = false;
-
-	var titleJSON:TitleData;
 
 	public static var updateVersion:String = '';
 
@@ -267,8 +266,7 @@ class TitleState extends MusicBeatState
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 			}
 		}
-
-		Conductor.changeBPM(titleJSON.bpm);
+		if (FreeplayState.vocals == null) {Conductor.changeBPM(titleJSON.bpm);}
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite();

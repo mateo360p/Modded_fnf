@@ -196,6 +196,7 @@ class StoryMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		var totalDiffs:Int = CoolUtil.difficulties.length;
 		// scoreText.setFormat('VCR OSD Mono', 32);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
@@ -227,12 +228,12 @@ class StoryMenuState extends MusicBeatState
 				changeDifficulty();
 			}
 
-			if (controls.UI_RIGHT)
+			if (controls.UI_RIGHT && totalDiffs != 1)
 				rightArrow.animation.play('press')
 			else
 				rightArrow.animation.play('idle');
 
-			if (controls.UI_LEFT)
+			if (controls.UI_LEFT && totalDiffs != 1)
 				leftArrow.animation.play('press');
 			else
 				leftArrow.animation.play('idle');
@@ -266,6 +267,13 @@ class StoryMenuState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
 			MusicBeatState.switchState(new MainMenuState());
+		}
+		if (totalDiffs == 1){
+			rightArrow.color = 0x656565;
+			leftArrow.color = 0x656565;
+		} else {
+			rightArrow.color = 0xFFFFFF;
+			leftArrow.color = 0xFFFFFF;
 		}
 
 		super.update(elapsed);

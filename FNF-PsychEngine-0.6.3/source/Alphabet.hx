@@ -118,7 +118,7 @@ class Alphabet extends FlxSpriteGroup
 		rows = 0;
 	}
 
-	private function set_scaleX(value:Float)
+	public function set_scaleX(value:Float)
 	{
 		if (value == scaleX) return value;
 
@@ -137,7 +137,7 @@ class Alphabet extends FlxSpriteGroup
 		return value;
 	}
 
-	private function set_scaleY(value:Float)
+	public function set_scaleY(value:Float)
 	{
 		if (value == scaleY) return value;
 

@@ -224,7 +224,8 @@ class ChartingState extends MusicBeatState
 				gfVersion: 'gf',
 				speed: 3,
 				stage: 'stage',
-				validScore: false
+				validScore: false,
+				album: 'dp1'
 			};
 			addSection();
 			PlayState.SONG = _song;
@@ -400,6 +401,7 @@ class ChartingState extends MusicBeatState
 	var playSoundBf:FlxUICheckBox = null;
 	var playSoundDad:FlxUICheckBox = null;
 	var UI_songTitle:FlxUIInputText;
+	var albumImageInputText:FlxUIInputText;
 	var noteSkinInputText:FlxUIInputText;
 	var noteSplashesInputText:FlxUIInputText;
 	var stageDropDown:FlxUIDropDownMenuCustom;
@@ -610,6 +612,9 @@ class ChartingState extends MusicBeatState
 		noteSplashesInputText = new FlxUIInputText(noteSkinInputText.x, noteSkinInputText.y + 35, 150, _song.splashSkin, 8);
 		blockPressWhileTypingOn.push(noteSplashesInputText);
 
+		albumImageInputText = new FlxUIInputText(stageDropDown.x, gfVersionDropDown.y + 3, 125, _song.album, 8);
+		blockPressWhileTypingOn.push(albumImageInputText);
+
 		var reloadNotesButton:FlxButton = new FlxButton(noteSplashesInputText.x + 5, noteSplashesInputText.y + 20, 'Change Notes', function() {
 			_song.arrowSkin = noteSkinInputText.text;
 			updateGrid();
@@ -633,6 +638,7 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(stepperSpeed);
 		tab_group_song.add(reloadNotesButton);
 		tab_group_song.add(noteSkinInputText);
+		tab_group_song.add(albumImageInputText);
 		tab_group_song.add(noteSplashesInputText);
 		tab_group_song.add(new FlxText(stepperBPM.x, stepperBPM.y - 15, 0, 'Song BPM:'));
 		tab_group_song.add(new FlxText(stepperBPM.x + 100, stepperBPM.y - 15, 0, 'Song Offset:'));
@@ -643,6 +649,7 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(new FlxText(stageDropDown.x, stageDropDown.y - 15, 0, 'Stage:'));
 		tab_group_song.add(new FlxText(noteSkinInputText.x, noteSkinInputText.y - 15, 0, 'Note Texture:'));
 		tab_group_song.add(new FlxText(noteSplashesInputText.x, noteSplashesInputText.y - 15, 0, 'Note Splashes Texture:'));
+		tab_group_song.add(new FlxText(stageDropDown.x, gfVersionDropDown.y - 15, 0, 'Album Image:'));
 		tab_group_song.add(player2DropDown);
 		tab_group_song.add(gfVersionDropDown);
 		tab_group_song.add(player1DropDown);
@@ -1490,6 +1497,8 @@ class ChartingState extends MusicBeatState
 		else if(id == FlxUIInputText.CHANGE_EVENT && (sender is FlxUIInputText)) {
 			if(sender == noteSplashesInputText) {
 				_song.splashSkin = noteSplashesInputText.text;
+			} else if (sender == albumImageInputText) {
+				_song.album = albumImageInputText.text;
 			}
 			else if(curSelectedNote != null)
 			{

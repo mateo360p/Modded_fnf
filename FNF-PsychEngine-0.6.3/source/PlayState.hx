@@ -2906,6 +2906,13 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		//Soooo I tried to make the voices dont get delay, but this gives lag in general, this doesn't worth it
+		/*if (curStep > 0 && vocals.time > Conductor.songPosition + 0.001){
+			Conductor.songPosition = FlxG.sound.music.time;
+			vocals.time = Conductor.songPosition;
+		}*/
+
+		
 		/*if (FlxG.keys.justPressed.NINE)
 		{
 			iconP1.swapOldIcon();

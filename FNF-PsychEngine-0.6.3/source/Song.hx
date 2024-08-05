@@ -30,6 +30,7 @@ typedef SwagSong =
 	var arrowSkin:String;
 	var splashSkin:String;
 	var validScore:Bool;
+	var album:String;
 }
 
 class Song
@@ -47,6 +48,7 @@ class Song
 	public var player1:String = 'bf';
 	public var player2:String = 'dad';
 	public var gfVersion:String = 'gf';
+	public var album:String = 'dp1';
 
 	private static function onLoadJson(songJson:Dynamic) // Convert old charts to newest format
 	{

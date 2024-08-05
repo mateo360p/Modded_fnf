@@ -26,7 +26,7 @@ using StringTools;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.6.3'; //This is also used for Discord RPC
-	public static var moddedEngineVersion:String = '0.0.8'; //This is also used for Discord RPC
+	public static var moddedEngineVersion:String = '0.0.9'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -88,14 +88,14 @@ class MainMenuState extends MusicBeatState
 		add(camFollow);
 		add(camFollowPos);
 
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
+		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuBGmagenta'));
 		magenta.scrollFactor.set(0, yScroll);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
 		magenta.updateHitbox();
 		magenta.screenCenter();
 		magenta.visible = false;
 		magenta.antialiasing = ClientPrefs.globalAntialiasing;
-		magenta.color = 0xFFfd719b;
+		//magenta.color = 0xFFfd719b;
 		add(magenta);
 		
 		// magenta.scrollFactor.set();
@@ -177,12 +177,12 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		if (FlxG.sound.music.volume < 0.8)
-		{
-			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
-			if(FreeplayState.vocals != null) FreeplayState.vocals.volume += 0.5 * elapsed;
-		}
-
+		if (FlxG.sound.music.volume < 0.8 && FlxG.sound.music.volume != 0)
+			{
+				FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
+			}
+		if (FreeplayState.vocals != null){FreeplayState.vocals.volume += 0.5 * elapsed;}
+		if (FreeplayState.instrumental != null){FreeplayState.instrumental.volume += 0.5 * elapsed;}
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
@@ -218,8 +218,12 @@ class MainMenuState extends MusicBeatState
 					selectedSomethin = true;
 					FlxG.sound.play(Paths.sound('confirmMenu'));
 
-					if(ClientPrefs.flashing) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+					if(ClientPrefs.flashing){
+						FlxFlicker.flicker(magenta, 1, 0.1, false);
+						FlxG.camera.flash(FlxColor.WHITE, 0.25);
+					}
 
+					//
 					menuItems.forEach(function(spr:FlxSprite)
 					{
 						if (curSelected != spr.ID)
