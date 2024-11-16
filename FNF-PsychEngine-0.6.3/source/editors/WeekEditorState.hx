@@ -88,10 +88,10 @@ class WeekEditorState extends MusicBeatState
 		add(missingFileText); 
 		
 		var charArray:Array<String> = weekFile.weekCharacters;
-		for (char in 0...3)
+		for (i in 0...3)
 		{
-			var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, charArray[char]);
-			weekCharacterThing.y += 70;
+			var weekCharacterThing:MenuCharacter = new MenuCharacter(0, 0 ,charArray[i], i);
+			//weekCharacterThing.y += 70;
 			grpWeekCharacters.add(weekCharacterThing);
 		}
 
@@ -303,7 +303,7 @@ class WeekEditorState extends MusicBeatState
 	function updateText()
 	{
 		for (i in 0...grpWeekCharacters.length) {
-			grpWeekCharacters.members[i].changeCharacter(weekFile.weekCharacters[i]);
+			grpWeekCharacters.members[i].changeCharacter(weekFile.weekCharacters[i], i);
 		}
 
 		var stringThing:Array<String> = [];
@@ -367,7 +367,7 @@ class WeekEditorState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Week Editor", "Editting: " + weekFileName);
+		DiscordClient.changePresence("Editting weeks", "Editting: " + weekFileName);
 		#end
 	}
 	

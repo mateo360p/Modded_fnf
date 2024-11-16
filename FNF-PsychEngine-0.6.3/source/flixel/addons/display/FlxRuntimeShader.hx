@@ -1,5 +1,6 @@
 package flixel.addons.display;
 
+import flixel.graphics.tile.FlxGraphicsShader;
 import flixel.system.FlxAssets.FlxShader;
 import lime.utils.Float32Array;
 import openfl.display.BitmapData;
@@ -22,7 +23,7 @@ import openfl.display.ShaderParameterType;
  * @see https://github.com/openfl/openfl/blob/develop/src/openfl/utils/_internal/ShaderMacro.hx
  * @see https://dixonary.co.uk/blog/shadertoy
  */
-class FlxRuntimeShader extends FlxShader
+class FlxRuntimeShader extends FlxGraphicsShader
 {
 	#if FLX_DRAW_QUADS
 	// We need to add stuff from FlxGraphicsShader too!

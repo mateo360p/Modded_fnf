@@ -12,6 +12,7 @@
 	],
 	"weekBackground": "philly",
 
+	"difficulties": "Hard, Night",
 	"storyName": "PICO",
 	"weekBefore": "week2",
 	"weekName": "Week 3",

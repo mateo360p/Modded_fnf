@@ -47,6 +47,8 @@ typedef AnimArray = {
 
 class Character extends FlxSprite
 {
+	public var disChangeZ:Bool = false; //ONLY FOR BLAZIN SONG 
+
 	public var mostRecentRow:Int = 0;
 	public var animOffsets:Map<String, Array<Dynamic>>;
 	public var debugMode:Bool = false;
@@ -215,6 +217,12 @@ class Character extends FlxSprite
 					quickAnimAdd('idle', 'BF idle dance');
 				}
 				//trace('Loaded file to character ' + curCharacter);
+
+				/*ABOT STUFF
+				if (curCharacter == 'nene'){
+					var abot = new Abot(x, y);
+					add(abot);
+				}*/
 		}
 		originalFlipX = flipX;
 
@@ -256,6 +264,24 @@ class Character extends FlxSprite
 		}
 	}
 
+	var playBF = PlayState.instance.boyfriend;
+	var playDad = PlayState.instance.dad;
+	//Only for blazin
+	function moveToBack(?xd:Dynamic){
+		if (playBF != null && playDad != null){
+			playBF.zIndex = 90;
+			playDad.zIndex = 100;
+			PlayState.instance.refreshState();
+		}
+	}
+
+	function moveToFront(?xd:Dynamic){
+		if (playBF != null && playDad != null){
+			playBF.zIndex = 100;
+			playDad.zIndex = 90;
+			PlayState.instance.refreshState();
+		}
+	}
 	override function update(elapsed:Float)
 	{
 		if(!debugMode && animation.curAnim != null)
@@ -292,7 +318,6 @@ class Character extends FlxSprite
 					}
 					if(animation.curAnim.finished) playAnim(animation.curAnim.name, false, false, animation.curAnim.frames.length - 3);
 			}
-
 			if (!isPlayer)
 			{
 				if (animation.curAnim.name.startsWith('sing'))
@@ -324,6 +349,16 @@ class Character extends FlxSprite
 	{
 		if (!debugMode && !skipDance && !specialAnim)
 		{
+			if (!isPlayer)
+			{
+				if (PlayState.curStage == 'phillyBlazin'){
+					moveToBack(true);
+				}
+			} else {
+				if (PlayState.curStage == 'phillyBlazin'){
+					moveToFront(true);
+				}
+			}
 			if(danceIdle)
 			{
 				danced = !danced;
@@ -419,4 +454,285 @@ class Character extends FlxSprite
 	{
 		animation.addByPrefix(name, anim, 24, false);
 	}
+
+	//DARNELL BLAZIN CHITS
+
+	var alternate:Bool = false;
+	function doAlternate():String {
+		alternate = !alternate;
+		return alternate ? '1' : '2';
+	}
+
+	function playBlockAnim()
+	{
+		playAnim('block', true, false);
+		PlayState.instance.camGame.shake(0.002, 0.1);
+		//moveToBack();
+	}
+
+	function playCringeAnim()
+	{
+		playAnim('cringe', true, false);
+		//moveToBack();
+	}
+
+	function playDodgeAnim()
+	{
+		playAnim('dodge', true, false);
+		//moveToBack();
+	}
+
+	function playIdleAnim()
+	{
+		playAnim('idle', false, false);
+		//moveToBack();
+	}
+
+	function playFakeoutAnim()
+	{
+		playAnim('fakeout', true, false);
+		//moveToBack();
+	}
+
+	function playPissedConditionalAnim()
+	{
+		if (animation.curAnim.name == "cringe") {
+			playPissedAnim();
+		} else {
+			playIdleAnim();
+		}
+	}
+
+	function playPissedAnim()
+	{
+		playAnim('pissed', true, false);
+		//moveToBack();
+	}
+
+	function playUppercutPrepAnim()
+	{
+		playAnim('uppercutPrep', true, false);
+		//moveToFront(this);
+	}
+
+	//hit parameter doesn't matter for darnell, just put true or false
+	function playUppercutAnim(hit:Bool)
+	{
+		playAnim('uppercut', true, false);
+		//moveToFront();
+	}
+
+	function playUppercutHitAnim()
+	{
+		playAnim('uppercutHit', true, false);
+		//moveToBack();
+	}
+
+	function playHitHighAnim()
+	{
+		playAnim('hitHigh', true, false);
+		PlayState.instance.camGame.shake(0.0025, 0.15);
+		//moveToBack();
+	}
+
+	function playHitLowAnim()
+	{
+		playAnim('hitLow', true, false);
+		PlayState.instance.camGame.shake(0.0025, 0.15);
+		//moveToBack();
+	}
+
+	function playPunchHighAnim()
+	{
+		playAnim('punchHigh' + doAlternate(), true, false);
+		//moveToFront();
+	}
+
+	function playPunchLowAnim()
+	{
+		playAnim('punchLow' + doAlternate(), true, false);
+		//moveToFront();
+	}
+
+	function playSpinAnim()
+	{
+		playAnim('hitSpin', true, false);
+		PlayState.instance.camGame.shake(0.0025, 0.15);
+		//moveToBack();
+	}
+
+    var cantUppercut = false;
+    public function playBlazinAnimation(noteName:String, notHitByPlayer:Bool){
+
+		this.disChangeZ == notHitByPlayer;
+
+		if (!StringTools.startsWith(noteName, 'weekend-1-')) return;
+
+        var shouldDoUppercutPrep = (PlayState.instance.health <= 0.30 * 2.0) && FlxG.random.bool(30);
+/*
+		if (shouldDoUppercutPrep) {
+			playUppercutPrepAnim();
+			return;
+		}
+
+		if (cantUppercut) {
+			playPunchHighAnim();
+			return;
+		}*/
+
+		/*
+        switch(noteName) {
+            case "weekend-1-punchlow":
+				playPunchLowAnim();
+			case "weekend-1-punchlowblocked":
+				playPunchLowAnim();
+			case "weekend-1-punchlowdodged":
+				playPunchLowAnim();
+			case "weekend-1-punchlowspin":
+				playPunchLowAnim();
+
+			// Pico tried and failed to punch, punch back!
+			case "weekend-1-punchhigh":
+				playPunchHighAnim();
+			case "weekend-1-punchhighblocked":
+				playPunchHighAnim();
+			case "weekend-1-punchhighdodged":
+				playPunchHighAnim();
+			case "weekend-1-punchhighspin":
+				playPunchHighAnim();
+
+			// Attempt to punch, Pico dodges or gets hit.
+			case "weekend-1-blockhigh":
+				playPunchHighAnim();
+			case "weekend-1-blocklow":
+				playPunchLowAnim();
+			case "weekend-1-blockspin":
+				playPunchHighAnim();
+
+			// Attempt to punch, Pico dodges or gets hit.
+			case "weekend-1-dodgehigh":
+				playPunchHighAnim();
+			case "weekend-1-dodgelow":
+				playPunchLowAnim();
+			case "weekend-1-dodgespin":
+				playPunchHighAnim();
+
+			// Attempt to punch, Pico ALWAYS gets hit.
+			case "weekend-1-hithigh":
+				playPunchHighAnim();
+			case "weekend-1-hitlow":
+				playPunchLowAnim();
+			case "weekend-1-hitspin":
+				playPunchHighAnim();
+
+			// Successfully dodge the uppercut.
+			case "weekend-1-picouppercutprep":
+				playHitHighAnim();
+				cantUppercut = true;
+			case "weekend-1-picouppercut":
+				playDodgeAnim();
+
+			// Attempt to punch, Pico dodges or gets hit.
+			case "weekend-1-darnelluppercutprep":
+				playUppercutPrepAnim();
+			case "weekend-1-darnelluppercut":
+				playUppercutAnim(true);
+
+			case "weekend-1-idle":
+				playIdleAnim();
+			case "weekend-1-fakeout":
+				playCringeAnim(); // TODO: Which anim?
+			case "weekend-1-taunt":
+				playPissedConditionalAnim();
+			case "weekend-1-tauntforce":
+				playPissedAnim();
+			case "weekend-1-reversefakeout":
+				playFakeoutAnim(); // TODO: Which anim?
+
+			default:
+				trace('idk');
+				*/
+
+		switch (noteName)	//OK MAYBE THERE'S A BETTER WAY TO DO THIS, but nah, this is, uhhh, okay :D
+		{
+			case "weekend-1-punchlow":
+				if (notHitByPlayer) playPunchLowAnim();
+				if (!notHitByPlayer) playHitLowAnim();
+			case "weekend-1-punchlowblocked":
+				if (notHitByPlayer) playPunchLowAnim();
+				if (!notHitByPlayer) playBlockAnim();
+			case "weekend-1-punchlowdodged":
+				if (notHitByPlayer) playPunchLowAnim();
+				if (!notHitByPlayer) playDodgeAnim();
+			case "weekend-1-punchlowspin":
+				if (notHitByPlayer) playPunchLowAnim();
+				if (!notHitByPlayer) playSpinAnim();
+
+			case "weekend-1-punchhigh":
+				if (notHitByPlayer) playPunchHighAnim();
+				if (!notHitByPlayer) playHitHighAnim();
+			case "weekend-1-punchhighblocked":
+				if (notHitByPlayer) playPunchHighAnim();
+				if (!notHitByPlayer) playBlockAnim();
+			case "weekend-1-punchhighdodged":
+				if (notHitByPlayer) playPunchHighAnim();
+				if (!notHitByPlayer) playDodgeAnim();
+			case "weekend-1-punchhighspin":
+				if (notHitByPlayer) playPunchHighAnim();
+				if (!notHitByPlayer) playSpinAnim();
+
+			case "weekend-1-blockhigh":
+				if (notHitByPlayer) playBlockAnim();
+				if (!notHitByPlayer) playPunchHighAnim();
+			case "weekend-1-blocklow": //bro this one doesn't make any sense
+				if (notHitByPlayer) playDodgeAnim(); //changed to dodge***
+				if (!notHitByPlayer) playPunchLowAnim();
+			case "weekend-1-blockspin":
+				if (notHitByPlayer) playBlockAnim();
+				if (!notHitByPlayer) playPunchHighAnim();
+
+			case "weekend-1-dodgehigh":
+				if (notHitByPlayer) playDodgeAnim();
+				if (!notHitByPlayer) playPunchHighAnim();
+			case "weekend-1-dodgelow":
+				if (notHitByPlayer) playDodgeAnim();
+				if (!notHitByPlayer) playPunchLowAnim();
+			case "weekend-1-dodgespin":
+				if (notHitByPlayer) playDodgeAnim();
+				if (!notHitByPlayer) playPunchHighAnim();
+
+			case "weekend-1-hithigh":
+				if (notHitByPlayer) playHitHighAnim();
+				if (!notHitByPlayer) playPunchHighAnim();
+			case "weekend-1-hitlow":
+				if (notHitByPlayer) playHitLowAnim();
+				if (!notHitByPlayer) playPunchLowAnim();
+			case "weekend-1-hitspin":
+				if (notHitByPlayer) playSpinAnim();
+				if (!notHitByPlayer) playPunchHighAnim();
+
+			case "weekend-1-uppercutprep":
+				if (notHitByPlayer) playUppercutPrepAnim();
+				if (!notHitByPlayer) playIdleAnim();
+			case "weekend-1-uppercut":
+				if (notHitByPlayer) playUppercutAnim(true);
+				if (!notHitByPlayer) playUppercutHitAnim();
+
+			case "weekend-1-idle":
+				if (notHitByPlayer) playIdleAnim();
+			case "weekend-1-fakeout":
+				if (notHitByPlayer) playFakeoutAnim();
+				if (!notHitByPlayer) playIdleAnim();
+			case "weekend-1-taunt":
+				if (!notHitByPlayer) playPissedConditionalAnim();
+			case "weekend-1-tauntforce":
+				if (notHitByPlayer) playPissedAnim();
+
+			default:
+				// trace('Unknown note kind: ' + event.note.kind);	
+		}
+        
+        cantUppercut = false;
+		specialAnim = true;
+    }
 }

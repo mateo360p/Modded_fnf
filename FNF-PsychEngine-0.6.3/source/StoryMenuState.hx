@@ -31,7 +31,11 @@ class StoryMenuState extends MusicBeatState
 	var curDifficulty:Int = 1;
 
 	var txtWeekTitle:FlxText;
+
+	var colorTween:FlxTween;
 	var bgSprite:FlxSprite;
+	var menuColor:FlxColor = 0xFFFFD556;
+	var solidColor:FlxSprite;
 
 	private static var curWeek:Int = 0;
 
@@ -48,6 +52,11 @@ class StoryMenuState extends MusicBeatState
 	var rightArrow:FlxSprite;
 
 	var loadedWeeks:Array<WeekData> = [];
+
+	/* 
+		Well i always wanted to say this XD
+		TODO: make the characters play idle on beat (including gf)
+	*/
 
 	override function create()
 	{
@@ -73,7 +82,10 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
+
+		solidColor = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, FlxColor.WHITE);
+		//solidColor.color = menuColor;
+		solidColor.blend = MULTIPLY;
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
 
@@ -90,7 +102,7 @@ class StoryMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("In the Story Mode Menu", null);
 		#end
 
 		var num:Int = 0;
@@ -128,10 +140,10 @@ class StoryMenuState extends MusicBeatState
 
 		WeekData.setDirectoryFromWeek(loadedWeeks[0]);
 		var charArray:Array<String> = loadedWeeks[0].weekCharacters;
-		for (char in 0...3)
+		for (i in 0...3)
 		{
-			var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, charArray[char]);
-			weekCharacterThing.y += 70;
+			var weekCharacterThing:MenuCharacter = new MenuCharacter(0, 0, charArray[i], i);
+			//weekCharacterThing.y += 70;
 			grpWeekCharacters.add(weekCharacterThing);
 		}
 
@@ -165,9 +177,10 @@ class StoryMenuState extends MusicBeatState
 		rightArrow.antialiasing = ClientPrefs.globalAntialiasing;
 		difficultySelectors.add(rightArrow);
 
-		add(bgYellow);
+
 		add(bgSprite);
 		add(grpWeekCharacters);
+		add(solidColor);
 
 		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.07, bgSprite.y + 425).loadGraphic(Paths.image('Menu_Tracks'));
 		tracksSprite.antialiasing = ClientPrefs.globalAntialiasing;
@@ -304,6 +317,7 @@ class StoryMenuState extends MusicBeatState
 					if (char.character != '' && char.hasConfirmAnimation)
 					{
 						char.animation.play('confirm');
+						if (char.confirmOffsets != null) char.offset.set(char.confirmOffsets[0], char.confirmOffsets[1]);
 					}
 				}
 				stopspamming = true;
@@ -411,12 +425,23 @@ class StoryMenuState extends MusicBeatState
 		}
 
 		bgSprite.visible = true;
+
+		var bgCol = solidColor.color;
 		var assetName:String = leWeek.weekBackground;
 		if(assetName == null || assetName.length < 1) {
 			bgSprite.visible = false;
 		} else {
 			bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
+			//bgSprite.blend = MULTIPLY;
 		}
+
+		var tweenTime:Float = 0.5;
+		if(assetName == 'phillyStreets'){
+			colorTween = FlxTween.color(solidColor, tweenTime, bgCol, 0xFF4b3daa);
+		} else if (bgCol != menuColor) {
+			colorTween = FlxTween.color(solidColor, tweenTime, bgCol, menuColor);
+		}
+
 		PlayState.storyWeek = curWeek;
 
 		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
@@ -471,7 +496,7 @@ class StoryMenuState extends MusicBeatState
 	{
 		var weekArray:Array<String> = loadedWeeks[curWeek].weekCharacters;
 		for (i in 0...grpWeekCharacters.length) {
-			grpWeekCharacters.members[i].changeCharacter(weekArray[i]);
+			grpWeekCharacters.members[i].changeCharacter(weekArray[i], i);
 		}
 
 		var leWeek:WeekData = loadedWeeks[curWeek];

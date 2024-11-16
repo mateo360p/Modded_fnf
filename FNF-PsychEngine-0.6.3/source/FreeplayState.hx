@@ -76,7 +76,7 @@ class FreeplayState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("In the Freeplay Menu", null);
 		#end
 
 		for (i in 0...WeekData.weeksList.length) {
@@ -696,7 +696,7 @@ class FreeplayState extends MusicBeatState
 		if(albumImg.graphic != newImage)
 		{
 			albumImg.loadGraphic(newImage);
-			albumImg.scale.set(0.35, 0.35);
+			albumImg.scale.set(0.105, 0.105);
 			albumImg.updateHitbox();
 			albumImg.alpha = 0;
 			albumImg.x = gWidth - 280;

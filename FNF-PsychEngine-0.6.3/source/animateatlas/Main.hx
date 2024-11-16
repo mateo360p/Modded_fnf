@@ -76,6 +76,7 @@ class Main extends Sprite {
 		}
 	}
 
+	/*idk :v
 	public function addSpriteGirl(_) {
 		for (i in 0...1) {
 			var t = ss.createAnimation();
@@ -89,7 +90,7 @@ class Main extends Sprite {
 			spriteSymbols.push(t);
 			trace(spriteSymbols.length);
 		}
-	}
+	}*/
 
 	public function addTileGirl(_) {
 		for (i in 0...1) {

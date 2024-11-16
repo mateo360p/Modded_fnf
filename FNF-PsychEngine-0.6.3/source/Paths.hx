@@ -190,6 +190,16 @@ class Paths
 		return getPath('$key.lua', TEXT, library);
 	}
 
+	/*inline static public function getFile(fileType:String, key:String, ?library:String)
+	{
+		var path = '';
+		if(library == "preload" || library == "default"){
+			path = '$library:assets/$library/$file.$fileType';
+		} else {
+			path = '$library:assets/$library/$file.$fileType';
+		}
+	}*/
+
 	static public function video(key:String)
 	{
 		#if MODS_ALLOWED
@@ -243,6 +253,11 @@ class Paths
 		// streamlined the assets process more
 		var returnAsset:FlxGraphic = returnGraphic(key, library);
 		return returnAsset;
+	}
+
+	public static function animateAtlas(path:String, ?library:String):String
+	{
+		return getLibraryPath('images/$path', library);
 	}
 
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String

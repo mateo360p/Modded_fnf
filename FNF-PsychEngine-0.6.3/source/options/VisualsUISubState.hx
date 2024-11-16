@@ -32,7 +32,7 @@ class VisualsUISubState extends BaseOptionsMenu
 	public function new()
 	{
 		title = 'Visuals and UI';
-		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
+		rpcTitle = 'In the Visuals & UI Settings Menu'; //for Discord Rich Presence
 
 		//Old icons style (one color) will show if:
 		var option:Option = new Option('Old Healthbar Icons',

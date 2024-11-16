@@ -36,8 +36,11 @@ class MenuCharacterEditorState extends MusicBeatState
 {
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 	var characterFile:MenuCharacterFile = null;
+	var txtPosition:FlxText;
 	var txtOffsets:FlxText;
 	var defaultCharacters:Array<String> = ['dad', 'bf', 'gf'];
+	var char:MenuCharacter;
+	var curAnimation:Int = 0; //0 = idle, 1 = confirm ONLY WORKS FOR THE PLAYER
 
 	override function create() {
 		characterFile = {
@@ -46,18 +49,19 @@ class MenuCharacterEditorState extends MusicBeatState
 			position: [0, 0],
 			idle_anim: 'M Dad Idle',
 			confirm_anim: 'M Dad Idle',
+			confirm_offsets: [0, 0],
 			flipX: false
 		};
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Menu Character Editor", "Editting: " + characterFile.image);
+		DiscordClient.changePresence("Editting menu characters", "Editting: " + characterFile.image);
 		#end
 
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
-		for (char in 0...3)
+		for (i in 0...3)
 		{
-			var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, defaultCharacters[char]);
-			weekCharacterThing.y += 70;
+			var weekCharacterThing:MenuCharacter = new MenuCharacter(0, 0, defaultCharacters[i], i);
+			//weekCharacterThing.y += 70;
 			weekCharacterThing.alpha = 0.2;
 			grpWeekCharacters.add(weekCharacterThing);
 		}
@@ -65,13 +69,20 @@ class MenuCharacterEditorState extends MusicBeatState
 		add(new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51));
 		add(grpWeekCharacters);
 
-		txtOffsets = new FlxText(20, 10, 0, "[0, 0]", 32);
+		txtPosition = new FlxText(20, 10, 0, "Pos: [0, 0]", 32);
+		txtPosition.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+		txtPosition.alpha = 0.7;
+		add(txtPosition);
+
+		txtOffsets = new FlxText(320, 10, 0, "Offsets: [0, 0]", 32);
 		txtOffsets.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		txtOffsets.alpha = 0.7;
 		add(txtOffsets);
 
 		var tipText:FlxText = new FlxText(0, 540, FlxG.width,
-			"Arrow Keys - Change Offset (Hold shift for 10x speed)
+			"Arrow Keys - Change Offset (Start Press Animation)
+			\nWASD - Change the Character Position
+			\n(Hold shift for 10x speed)
 			\nSpace - Play \"Start Press\" animation (Boyfriend Character Type)", 16);
 		tipText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
 		tipText.scrollFactor.set();
@@ -222,16 +233,18 @@ class MenuCharacterEditorState extends MusicBeatState
 
 	function updateCharacters() {
 		for (i in 0...3) {
-			var char:MenuCharacter = grpWeekCharacters.members[i];
+			//var char:MenuCharacter = grpWeekCharacters.members[i];
+			char = grpWeekCharacters.members[i];
 			char.alpha = 0.2;
 			char.character = '';
-			char.changeCharacter(defaultCharacters[i]);
+			char.changeCharacter(defaultCharacters[i], i);
 		}
 		reloadSelectedCharacter();
 	}
 	
 	function reloadSelectedCharacter() {
-		var char:MenuCharacter = grpWeekCharacters.members[curTypeSelected];
+		//var char:MenuCharacter = grpWeekCharacters.members[curTypeSelected];
+		char = grpWeekCharacters.members[curTypeSelected];
 
 		char.alpha = 1;
 		char.frames = Paths.getSparrowAtlas('menucharacters/' + characterFile.image);
@@ -242,11 +255,12 @@ class MenuCharacterEditorState extends MusicBeatState
 		char.scale.set(characterFile.scale, characterFile.scale);
 		char.updateHitbox();
 		char.animation.play('idle');
+		updatePosition();
 		updateOffset();
 		
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Menu Character Editor", "Editting: " + characterFile.image);
+		DiscordClient.changePresence("Editting menu characters", "Editting: " + characterFile.image);
 		#end
 	}
 
@@ -293,40 +307,77 @@ class MenuCharacterEditorState extends MusicBeatState
 			var shiftMult:Int = 1;
 			if(FlxG.keys.pressed.SHIFT) shiftMult = 10;
 
-			if(FlxG.keys.justPressed.LEFT) {
+			if(FlxG.keys.justPressed.D) {
 				characterFile.position[0] += shiftMult;
-				updateOffset();
+				updatePosition();
 			}
-			if(FlxG.keys.justPressed.RIGHT) {
+			if(FlxG.keys.justPressed.A) {
 				characterFile.position[0] -= shiftMult;
-				updateOffset();
+				updatePosition();
 			}
-			if(FlxG.keys.justPressed.UP) {
+			if(FlxG.keys.justPressed.S) {
 				characterFile.position[1] += shiftMult;
-				updateOffset();
+				updatePosition();
 			}
-			if(FlxG.keys.justPressed.DOWN) {
+			if(FlxG.keys.justPressed.W) {
 				characterFile.position[1] -= shiftMult;
-				updateOffset();
+				updatePosition();
 			}
 
 			if(FlxG.keys.justPressed.SPACE && curTypeSelected == 1) {
-				grpWeekCharacters.members[curTypeSelected].animation.play('confirm', true);
+				var disChar = grpWeekCharacters.members[1];
+				if (curAnimation == 0) {
+					disChar.playAnim('confirm', true);
+					curAnimation = 1;
+					updateOffset();
+				} else if (curAnimation == 1) {
+					disChar.playAnim('idle', true);
+					curAnimation = 0;
+					updateOffset();
+				}
+				//grpWeekCharacters.members[curTypeSelected].animation.play('confirm', true);
+			}
+
+			var controlArray:Array<Bool> = [FlxG.keys.justPressed.LEFT, FlxG.keys.justPressed.RIGHT, FlxG.keys.justPressed.UP, FlxG.keys.justPressed.DOWN];
+			for (i in 0...controlArray.length) {
+				if(controlArray[i] && curTypeSelected == 1 && curAnimation == 1) {
+
+					var arrayVal = 0;
+					if(i > 1) arrayVal = 1;
+
+					var negaMult:Int = 1;
+					if(i % 2 == 1) negaMult = -1;
+					if (characterFile != null) characterFile.confirm_offsets[arrayVal] += negaMult * shiftMult;
+					updateOffset();
+				}
 			}
 		}
 
-		var char:MenuCharacter = grpWeekCharacters.members[1];
-		if(char.animation.curAnim != null && char.animation.curAnim.name == 'confirm' && char.animation.curAnim.finished) {
-			char.animation.play('idle', true);
-		}
 
 		super.update(elapsed);
 	}
 
+	override function beatHit(){
+		if (curAnimation == 0 && curTypeSelected == 1)
+			grpWeekCharacters.members[1].playAnim('idle', true);
+	}
+
+	function updatePosition() {
+		char = grpWeekCharacters.members[curTypeSelected];
+		char.setPosition(characterFile.position[0] + (FlxG.width * 0.25) * (1 + curTypeSelected) - 150, characterFile.position[1] + 70);
+		txtPosition.text = 'Pos: ' + characterFile.position;
+	}
+
 	function updateOffset() {
-		var char:MenuCharacter = grpWeekCharacters.members[curTypeSelected];
-		char.offset.set(characterFile.position[0], characterFile.position[1]);
-		txtOffsets.text = '' + characterFile.position;
+		if (curAnimation == 1 && curTypeSelected == 1){	
+			char = grpWeekCharacters.members[1];
+			char.offset.set(characterFile.confirm_offsets[0], characterFile.confirm_offsets[1]);
+		} else {
+			char.offset.set(0, 0);
+		}
+		var xdxdxd = characterFile.confirm_offsets;
+		if (xdxdxd == null){ xdxdxd = [0, 0];}
+		txtOffsets.text = 'Offsets: ' + xdxdxd;
 	}
 
 	var _file:FileReference = null;
@@ -364,6 +415,7 @@ class MenuCharacterEditorState extends MusicBeatState
 					idleInputText.text = characterFile.image;
 					confirmInputText.text = characterFile.image;
 					scaleStepper.value = characterFile.scale;
+					updatePosition();
 					updateOffset();
 					_file = null;
 					return;

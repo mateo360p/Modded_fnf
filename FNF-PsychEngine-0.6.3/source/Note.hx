@@ -149,6 +149,11 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 				case 'Alt Animation':
 					animSuffix = '-alt';
+				case 'Extra Animation':
+					animSuffix = '-ext';
+					if (Paths.formatToSongPath(PlayState.SONG.song) == '2hot') 
+						noMissAnimation = true;
+						missHealth = 0;
 				case 'No Animation':
 					noAnimation = true;
 					noMissAnimation = true;

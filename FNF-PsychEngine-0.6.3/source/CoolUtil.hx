@@ -1,11 +1,14 @@
 package;
 
+import flixel.tweens.FlxTween;
 import flixel.FlxG;
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
 import lime.utils.AssetLibrary;
 import lime.utils.AssetManifest;
 import flixel.system.FlxSound;
+import flixel.FlxBasic;
+import flixel.util.FlxSort;
 #if sys
 import sys.io.File;
 import sys.FileSystem;
@@ -135,5 +138,39 @@ class CoolUtil
 		#else
 		FlxG.openURL(site);
 		#end
+	}
+
+	public static function pauseTween(tween:FlxTween):Void
+		{
+		  if (tween != null)
+		  {
+			tween.active = false;
+		  }
+		}
+	  
+	public static function resumeTween(tween:FlxTween):Void
+	{
+		if (tween != null)
+		{
+		tween.active = true;
+		}
+	}
+	
+	public static function pauseTweensOf(Object:Dynamic, ?FieldPaths:Array<String>):Void
+	{
+		@:privateAccess
+		FlxTween.globalManager.forEachTweensOf(Object, FieldPaths, pauseTween);
+	}
+	
+	public static function resumeTweensOf(Object:Dynamic, ?FieldPaths:Array<String>):Void
+	{
+		@:privateAccess
+		FlxTween.globalManager.forEachTweensOf(Object, FieldPaths, resumeTween);
+	}
+	
+	public static inline function byZIndex(order:Int, a:FlxBasic, b:FlxBasic):Int
+	{
+		if (a == null || b == null) return 0;
+		return FlxSort.byValues(order, a.zIndex, b.zIndex);
 	}
 }

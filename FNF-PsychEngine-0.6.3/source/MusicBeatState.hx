@@ -1,5 +1,6 @@
 package;
 
+import flixel.util.FlxSort;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.addons.ui.FlxUIState;
@@ -173,5 +174,10 @@ class MusicBeatState extends FlxUIState
 		var val:Null<Float> = 4;
 		if(PlayState.SONG != null && PlayState.SONG.notes[curSection] != null) val = PlayState.SONG.notes[curSection].sectionBeats;
 		return val == null ? 4 : val;
+	}
+
+	public function refreshState()
+	{
+		sort(CoolUtil.byZIndex, FlxSort.ASCENDING);
 	}
 }

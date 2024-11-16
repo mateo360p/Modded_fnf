@@ -60,15 +60,44 @@ import sys.io.File;
 
 class ChartingState extends MusicBeatState
 {
+	public static var amongus:Bool = false;
 	public static var noteTypeList:Array<String> = //Used for backwards compatibility with 0.1 - 0.3.2 charts, though, you should add your hardcoded custom note types here too.
 	[
 		'',
 		'Alt Animation',
+		'Extra Animation',
 		'Hey!',
 		'Hurt Note',
 		'GF Sing',
 		'No Animation'
 	];
+	public static var blazinNotes:Array<String> =
+	[
+		"weekend-1-punchlow",
+		"weekend-1-punchlowblocked",
+		"weekend-1-punchlowdodged",
+		"weekend-1-punchlowspin",
+		"weekend-1-punchhigh",
+		"weekend-1-punchhighblocked",
+		"weekend-1-punchhighdodged",
+		"weekend-1-punchhighspin",
+		"weekend-1-blockhigh",
+		"weekend-1-blocklow",
+		"weekend-1-blockspin",
+		"weekend-1-dodgehigh",
+		"weekend-1-dodgelow",
+		"weekend-1-dodgespin",
+		"weekend-1-hithigh",
+		"weekend-1-hitlow",
+		"weekend-1-hitspin",
+		"weekend-1-uppercutprep",
+		"weekend-1-uppercut",
+		"weekend-1-idle",
+		"weekend-1-fakeout",
+		"weekend-1-taunt",
+		"weekend-1-tauntforce"
+	];
+	public static var globalNoteTypes = noteTypeList;
 	private var noteTypeIntMap:Map<Int, String> = new Map<Int, String>();
 	private var noteTypeMap:Map<String, Null<Int>> = new Map<String, Null<Int>>();
 	public var ignoreWarnings = false;
@@ -83,6 +112,7 @@ class ChartingState extends MusicBeatState
 		['Philly Glow', "Exclusive to Week 3\nValue 1: 0/1/2 = OFF/ON/Reset Gradient\n \nNo, i won't add it to other weeks."],
 		['Kill Henchmen', "For Mom's songs, don't use this please, i love them :("],
 		['Add Camera Zoom', "Used on MILF on that one \"hard\" part\nValue 1: Camera zoom add (Default: 0.015)\nValue 2: UI zoom add (Default: 0.03)\nLeave the values blank if you want to use Default."],
+		['Set Cam Zoom', "Uhhhhhhh\nValue 1: The new Zoom\nValue 2: Time to Zoom\n hey! if value 2 is blank or anithing else than a number\n it will do a regular zoom tween (idk if i said that correctly)"],
 		['BG Freaks Expression', "Should be used only in \"school\" Stage!"],
 		['Trigger BG Ghouls', "Should be used only in \"schoolEvil\" Stage!"],
 		['Play Animation', "Plays an animation on a Character,\nonce the animation is completed,\nthe animation changes to Idle\n\nValue 1: Animation to play.\nValue 2: Character (Dad, BF, GF)"],
@@ -225,7 +255,8 @@ class ChartingState extends MusicBeatState
 				speed: 3,
 				stage: 'stage',
 				validScore: false,
-				album: 'dp1'
+				album: 'dp1',
+				generalEventsLoad: true
 			};
 			addSection();
 			PlayState.SONG = _song;
@@ -235,7 +266,7 @@ class ChartingState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Chart Editor", StringTools.replace(_song.song, '-', ' '));
+		DiscordClient.changePresence("Charting Songs", StringTools.replace(_song.song, '-', ' '));
 		#end
 
 		vortex = FlxG.save.data.chart_vortex;
@@ -419,6 +450,15 @@ class ChartingState extends MusicBeatState
 			_song.altSong = alt_song.checked;
 			//trace('CHECKED!');
 		};
+		
+		var generalEvents = new FlxUICheckBox(150, 230, null, null, "Load General Events\nfrom folder", 100);
+		generalEvents.checked = _song.generalEventsLoad;
+
+		generalEvents.callback = function()
+		{
+			_song.generalEventsLoad = generalEvents.checked;
+			//trace('CHECKED!');
+		};
 
 		var check_voices = new FlxUICheckBox(10, 25, null, null, "Has voice track", 100);
 		check_voices.checked = _song.needsVoices;
@@ -454,7 +494,7 @@ class ChartingState extends MusicBeatState
 
 		var loadEventJson:FlxButton = new FlxButton(loadAutosaveBtn.x, loadAutosaveBtn.y + 30, 'Load Events', function()
 		{
-
+			if(generalEvents.checked){
 			var songName:String = Paths.formatToSongPath(_song.song);
 			var file:String = Paths.json(songName + '/events');
 			#if sys
@@ -463,11 +503,10 @@ class ChartingState extends MusicBeatState
 			if (OpenFlAssets.exists(file))
 			#end
 			{
-				clearEvents();
 				var events:SwagSong = Song.loadFromJson('events', songName);
 				_song.events = events.events;
 				changeSection(curSec);
-			}
+			}}
 		});
 
 		var saveEvents:FlxButton = new FlxButton(110, reloadSongJson.y, 'Save Events', function ()
@@ -625,6 +664,7 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(UI_songTitle);
 
 		tab_group_song.add(alt_song);
+		tab_group_song.add(generalEvents);
 		tab_group_song.add(check_voices);
 		tab_group_song.add(clear_events);
 		tab_group_song.add(clear_notes);
@@ -960,6 +1000,9 @@ class ChartingState extends MusicBeatState
 		tab_group_note.add(strumTimeInputText);
 		blockPressWhileTypingOn.push(strumTimeInputText);
 
+		if (currentSongName == "blazin"){
+			blazinNotesThing(0); //load
+		}
 		var key:Int = 0;
 		var displayNameList:Array<String> = [];
 		while (key < noteTypeList.length) {
@@ -1391,6 +1434,11 @@ class ChartingState extends MusicBeatState
 		FlxG.sound.music.pause();
 		Conductor.songPosition = sectionStartTime();
 		FlxG.sound.music.time = Conductor.songPosition;
+		if (currentSongName == "blazin"){
+			blazinNotesThing(0); //load
+		} else {
+			blazinNotesThing(1); //unload :D
+		}
 	}
 
 	function generateSong() {
@@ -2996,6 +3044,24 @@ class ChartingState extends MusicBeatState
 			"song": _song
 		});
 		FlxG.save.flush();
+	}
+
+	function blazinNotesThing(insertSmileyFace:Int) //bro i don't want to have all that shit everytime
+	{
+		//0 = load; 1 = not load/unload
+		switch(insertSmileyFace){
+			case 0:
+				if (amongus == false){
+					for (i in blazinNotes) {
+						noteTypeList.push(i);
+						amongus = true;
+					}
+				}
+			case 1:
+				noteTypeList = globalNoteTypes;
+				amongus = false;
+		}
+		//noteTypeList = noteTypeList + blazinNotes XDXDXDXD
 	}
 
 	function clearEvents() {

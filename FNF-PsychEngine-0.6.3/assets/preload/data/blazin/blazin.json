@@ -1,0 +1,229 @@
+{
+	"song": {
+		"player1": "Pico_Blazin",
+		"gfVersion": "nene",
+		"notes": [
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [
+					[
+						0,
+						3,
+						0,
+						"weekend-1-punchlow"
+					],
+					[
+						333.333333333333,
+						2,
+						0,
+						"weekend-1-blockhigh"
+					],
+					[
+						500,
+						3,
+						0,
+						"weekend-1-blocklow"
+					],
+					[
+						166.666666666667,
+						0,
+						0,
+						"weekend-1-punchlowblocked"
+					],
+					[
+						1000,
+						2,
+						0,
+						"weekend-1-hithigh"
+					],
+					[
+						1083.33333333333,
+						3,
+						0,
+						"weekend-1-hithigh"
+					],
+					[
+						1166.66666666667,
+						0,
+						0,
+						"weekend-1-dodgehigh"
+					],
+					[
+						666.666666666667,
+						1,
+						0,
+						"weekend-1-punchlowdodged"
+					],
+					[
+						833.333333333333,
+						0,
+						0,
+						"weekend-1-punchhighdodged"
+					]
+				],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 150
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [
+					[
+						1333.33333333333,
+						2,
+						0,
+						"weekend-1-punchhigh"
+					],
+					[
+						2000,
+						1,
+						0,
+						"weekend-1-dodgelow"
+					],
+					[
+						2166.66666666667,
+						3,
+						0,
+						"weekend-1-hithigh"
+					],
+					[
+						2333.33333333333,
+						0,
+						0,
+						"weekend-1-punchhigh"
+					],
+					[
+						1500,
+						0,
+						0,
+						"weekend-1-punchlow"
+					],
+					[
+						1666.66666666667,
+						3,
+						0,
+						"weekend-1-punchhigh"
+					],
+					[
+						2500,
+						2,
+						0,
+						"weekend-1-dodgelow"
+					]
+				],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 150
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 150
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 180
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 180
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 180,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 180,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 180,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 180,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 180,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 180,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			}
+		],
+		"events": [],
+		"player2": "Darnell_Blazin",
+		"splashSkin": "noteSplashes",
+		"song": "Blazin",
+		"needsVoices": false,
+		"arrowSkin": "",
+		"altSong": false,
+		"validScore": true,
+		"stage": "phillyBlazin",
+		"album": "dp1",
+		"bpm": 180,
+		"speed": 3,
+		"generalEventsLoad": true
+	}
+}

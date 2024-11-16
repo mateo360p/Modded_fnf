@@ -32,7 +32,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 	public function new()
 	{
 		title = 'Gameplay Settings';
-		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
+		rpcTitle = 'In the Gameplay Settings Menu'; //for Discord Rich Presence
 
 		var option:Option = new Option('Ghost on Notes',
 		"When hitting more than one note at the same time,\ncreates a ghost of the character",
